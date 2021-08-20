@@ -18,7 +18,7 @@ Dev with
 - Tomcat 10.1-M2
 - Jdk 1.8.0-291
 
-Plugle with
+Plugin with
 
 - Alibaba Java Coding Guidelines 2.1.1
 - Smart Tomcat 3.8.5
