@@ -96,11 +96,11 @@
 
 > 用户实体：
 >
-> |   字段    |  类型   |
-> | :-------: | :-----: |
-> | 管理员 ID | Integer |
-> |  用户名   | String  |
-> |   密码    | String  |
-> | 用户全名  | String  |
-> | 电话号码  | String  |
-> | 用户类型  | Integer |
+> |   字段   |  类型   |
+> | :------: | :-----: |
+> | 用户 ID  | Integer |
+> |  用户名  | String  |
+> |   密码   | String  |
+> | 用户全名 | String  |
+> | 电话号码 | String  |
+> | 用户类型 | Integer |
