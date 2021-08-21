@@ -1,7 +1,6 @@
-package com.lviat.pojo;
+package com.lviat.model;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * 用户类型 Flag 枚举类.

@@ -1,6 +1,10 @@
-package com.lviat.pojo;
+package com.lviat.model;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * 用户 实体类.
@@ -18,25 +22,30 @@ public class User {
     /**
      * 用户 ID.
      */
-    int userId;
+    int id;
+
     /**
      * 用户名.
      */
     String userName;
+
     /**
      * 密码
      */
     String password;
+
     /**
      * 用户全名
      */
-    String userFullName;
+    String name;
+
     /**
      * 电话号码
      */
     String phoneNum;
+
     /**
      * 用户类型
      */
-    int userType;
+    int type;
 }
