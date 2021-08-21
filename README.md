@@ -26,4 +26,4 @@ Plugin with
 
 Database with
 
-Oracle Database 19c.
+- Oracle Database 19c.
