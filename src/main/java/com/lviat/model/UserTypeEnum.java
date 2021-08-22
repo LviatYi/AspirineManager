@@ -31,4 +31,13 @@ public enum UserTypeEnum {
         this.userType = userType;
         this.typeName = typeName;
     }
+
+    @Override
+    public String toString() {
+        return this.typeName;
+    }
+
+    public int value(){
+        return this.userType;
+    }
 }
