@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <property name="appName"
+              value="AspirineManager"/>
+    <property name="logPath"
+              value="E:/Log"/>
+    <!--
+         日志输出格式：
+             %-5level 日志级别
+             %d{yyyy-MM-dd HH:mm:ss} 日期
+             %c 或者%logger类的完整名称
+             %M method方法名
+             %L 行号
+             %thread 线程名
+             %m或者%msg 日志信息
+             %n 换行
+         -->
+    <!--控制台日志格式：彩色日志 %颜色()-->
+    <!-- %black-->
+    <!-- %red-->
+    <!-- %green-->
+    <!-- %yellow-->
+    <!-- %blue-->
+    <!-- %magenta-->
+    <!-- %cyan-->
+    <!-- %white-->
+    <!-- %gray-->
+    <!-- %boldRed-->
+    <!-- %boldGreen-->
+    <!-- %boldYellow-->
+    <!-- %boldBlue-->
+    <!-- %boldMagenta-->
+    <!-- %boldCyan-->
+    <!-- %boldWhite-->
+    <!-- %highlight-->
+    <property name="consoleLogPattern"
+              value="%white(%date{yyyy-MM-dd HH:mm:ss}) |%boldWhite(%-5level) |%blue(%thread) |%highlight(%file:%line) |%boldYellow(%logger) |%magenta(%M) |%green(%msg%n)"/>
+    <property name="fileLogPattern"
+              value="%date{yyyy-MM-dd HH:mm:ss} |%-5level |%thread |%file:%line |%logger | %M |%msg%n"/>
+    <property name="encoding"
+              value="UTF-8"/>
+
+    <contextName>${appName}</contextName>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+        <encoder>
+            <Pattern>${consoleLogPattern}</Pattern>
+            <charset>${encoding}</charset>
+        </encoder>
+    </appender>
+
+    <!--输出到滚动文件-->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${logPath}/NRS.log</file>
+        <encoder>
+            <pattern>${fileLogPattern}</pattern>
+            <charset>${encoding}</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/NRS-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="TRACE">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="INFO_FILE"/>
+    </root>
+</configuration>
