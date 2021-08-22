@@ -3,13 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <typeAliases>
-        <typeAlias type="com.com.lviat.model.User" alias="User"/>
-        <typeAlias type="com.com.lviat.model.Consumer" alias="Consumer"/>
-        <typeAlias type="com.com.lviat.model.Medicine" alias="Medicine"/>
-        <typeAlias type="com.com.lviat.model.SalesInfo" alias="SalesInfo"/>
-        <typeAlias type="com.com.lviat.model.MedicineType" alias="MedicineType"/>
-    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -17,7 +10,7 @@
                 <property name="driver" value="oracle.jdbc.OracleDriver"/>
                 <property name="url"
                           value="jdbc:oracle:thin:@120.55.165.128:1521/ORCLPDB1?useUnicode=true&amp;characterEncoding=utf-8"/>
-                <property name="username" value="ASPNADMIN"/>
+                <property name="username" value="AspnAdmin"/>
                 <property name="password" value="t7cgavENd6iqB90f"/>
             </dataSource>
         </environment>
