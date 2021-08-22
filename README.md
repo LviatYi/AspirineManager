@@ -6,7 +6,7 @@ Aspirine Manager 医药管理系统.
 
 南京信息工程大学 暑期实训课程.
 
-「You wont take me alive.」 Tommy Vercetti ,Grand Theft Auto:Vice City.
+「You wont take me alive.」 *Tommy Vercetti ,Grand Theft Auto:Vice City*.
 
 ## Environment
 
@@ -27,3 +27,9 @@ Plugin with
 Database with
 
 - Oracle Database 19c.
+
+## Documentation
+
+- [UserStory][Doc-UserStory]
+
+[Doc-UserStory]:doc/UserStory.md
