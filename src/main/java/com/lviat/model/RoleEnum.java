@@ -11,7 +11,7 @@ import lombok.Getter;
  * @date 2021/8/21
  */
 @Getter
-public enum UserTypeEnum {
+public enum RoleEnum {
     /**
      * 管理员.
      */
@@ -27,7 +27,7 @@ public enum UserTypeEnum {
      */
     private final String typeName;
 
-    UserTypeEnum(int userType, String typeName) {
+    RoleEnum(int userType, String typeName) {
         this.userType = userType;
         this.typeName = typeName;
     }
