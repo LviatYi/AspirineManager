@@ -9,9 +9,13 @@ package com.lviat.util.constant.text;
  * @date 2021/8/21
  */
 public class RelationText {
-    public static final String CONSUMER_TABLE_NAME = "Consumer";
-    public static final String MEDICINE_TABLE_NAME = "Medicine";
-    public static final String MEDICINE_TYPE_TABLE_NAME = "MedicineType";
-    public static final String SALES_INFO_TABLE_NAME = "SalesInfo";
-    public static final String USER_TABLE_NAME = "User";
+    final public static String CONSUMER_TABLE_NAME = "Consumer";
+    final public static String MEDICINE_TABLE_NAME = "Medicine";
+    final public static String MEDICINE_TYPE_TABLE_NAME = "MedicineType";
+    final public static String SALES_INFO_TABLE_NAME = "SalesInfo";
+    final public static String USER_TABLE_NAME = "User";
+
+    final public static String Web_USER_ID = "user_id";
+    final public static String Web_USER_NAME = "user_name";
+    final public static String Web_USER_PASSWORD = "user_password";
 }

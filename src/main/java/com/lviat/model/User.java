@@ -16,32 +16,32 @@ import lombok.*;
 @AllArgsConstructor
 public class User {
     /**
-     * 用户 ID.
+     * 用户 ID..
      */
     int id;
 
     /**
-     * 用户名.
+     * 用户名..
      */
     String username;
 
     /**
-     * 密码
+     * 密码.
      */
     String password;
 
     /**
-     * 用户全名
+     * 用户全名.
      */
     String name;
 
     /**
-     * 电话号码
+     * 电话号码.
      */
     String phoneNum;
 
     /**
-     * 用户类型
+     * 角色.
      */
-    int type;
+    int role;
 }
