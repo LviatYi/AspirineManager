@@ -23,6 +23,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/com.lviat/mapper/UserMapper.xml"/>
+        <mapper resource="com.lviat.mapper.UserMapper"/>
+        <mapper resource="com.lviat.mapper.ConsumerMapper"/>
+        <mapper resource="com.lviat.mapper.MedicineMapper"/>
+        <mapper resource="com.lviat.mapper.MedicineTypeMapper"/>
+        <mapper resource="com.lviat.mapper.SalesInfoMapper"/>
     </mappers>
 </configuration>
