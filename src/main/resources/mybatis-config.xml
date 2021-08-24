@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.com.lviat.model.User" alias="User"/>
-        <typeAlias type="com.com.lviat.model.Consumer" alias="Consumer"/>
-        <typeAlias type="com.com.lviat.model.Medicine" alias="Medicine"/>
-        <typeAlias type="com.com.lviat.model.SalesInfo" alias="SalesInfo"/>
-        <typeAlias type="com.com.lviat.model.MedicineType" alias="MedicineType"/>
+        <typeAlias type="com.lviat.model.User" alias="User"/>
+        <typeAlias type="com.lviat.model.Consumer" alias="Consumer"/>
+        <typeAlias type="com.lviat.model.Medicine" alias="Medicine"/>
+        <typeAlias type="com.lviat.model.SalesInfo" alias="SalesInfo"/>
+        <typeAlias type="com.lviat.model.MedicineType" alias="MedicineType"/>
     </typeAliases>
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
@@ -32,10 +32,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com.lviat.mapper.UserMapper"/>
-        <mapper resource="com.lviat.mapper.ConsumerMapper"/>
-        <mapper resource="com.lviat.mapper.MedicineMapper"/>
-        <mapper resource="com.lviat.mapper.MedicineTypeMapper"/>
-        <mapper resource="com.lviat.mapper.SalesInfoMapper"/>
+        <mapper resource="com/lviat/mapper/UserMapper.xml"/>
+        <mapper resource="com/lviat/mapper/ConsumerMapper.xml"/>
+        <mapper resource="com/lviat/mapper/MedicineMapper.xml"/>
+        <mapper resource="com/lviat/mapper/MedicineTypeMapper.xml"/>
+        <mapper resource="com/lviat/mapper/SalesInfoMapper.xml"/>
     </mappers>
 </configuration>
