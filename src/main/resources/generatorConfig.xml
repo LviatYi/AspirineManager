@@ -47,7 +47,9 @@
             <columnOverride column="price" javaType="float"/>
         </table>
         <table schema="LviatYi" tableName="ASPN_MEDICINE_TYPE" domainObjectName="MedicineType"/>
-        <table schema="LviatYi" tableName="ASPN_USER" domainObjectName="User"/>
+        <table schema="LviatYi" tableName="ASPN_USER" domainObjectName="User">
+            <columnOverride column="role" javaType="int"/>
+        </table>
         <table schema="LviatYi" tableName="ASPN_SALES_INFO" domainObjectName="SalesInfo">
             <columnOverride column="payment" javaType="float"/>
         </table>
