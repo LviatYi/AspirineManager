@@ -19,7 +19,7 @@ public class SalesInfo {
     /**
      * 销售记录 ID.
      */
-    private int id;
+    private long id;
 
     /**
      * 销售日期.
@@ -29,12 +29,12 @@ public class SalesInfo {
     /**
      * 药品 ID.
      */
-    private int medicineId;
+    private long medicineId;
 
     /**
      * 销售数量.
      */
-    private int salesCount;
+    private long salesCount;
 
     /**
      * 付款额.
@@ -44,5 +44,5 @@ public class SalesInfo {
     /**
      * 消费者 ID.
      */
-    private int consumerId;
+    private long consumerId;
 }
