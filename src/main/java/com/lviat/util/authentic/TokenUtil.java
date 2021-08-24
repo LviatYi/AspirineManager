@@ -32,7 +32,7 @@ public class TokenUtil {
     //从 token.config 配置文件中获取相关属性.
     static {
         Properties properties = new Properties();
-        InputStream inputStream =TokenUtil.class.getClassLoader().getResourceAsStream("token.config");
+        InputStream inputStream = TokenUtil.class.getClassLoader().getResourceAsStream("token.config");
         try {
             properties.load(inputStream);
         } catch (IOException ioException) {
@@ -85,6 +85,43 @@ public class TokenUtil {
      *
      * @param token 待验证 token.
      * @param id    验证 User 的 id.
+     * @param role  需要的 Role 权限.
+     * @return 返回验证状态.
+     * 当为 0 时,Token 解析失败.
+     * 为 1 时,认证成功.
+     * 为 2 时,超时.
+     * 为 3 时,id 错误.
+     * 为 4 时,issue 错误.
+     * 为 5 时,权限不足.
+     */
+    public static int verifyToken(String token, long id, int role) {
+        int verifyStatus = 1;
+        Claims claims;
+        try {
+            claims = Jwts.parser()
+                    .setSigningKey(KEY)
+                    .parseClaimsJws(token).getBody();
+        } catch (Exception e) {
+            return 0;
+        }
+        if (!claims.getIssuer().equals(ISSUER)) {
+            verifyStatus = 4;
+        } else if (!claims.getId().equals(String.valueOf(id))) {
+            verifyStatus = 3;
+        } else if (((Integer.parseInt(claims.getSubject()) & role) == 0)) {
+            verifyStatus = 5;
+        }
+
+        return verifyStatus;
+    }
+
+    /**
+     * 验证 jwt.
+     * 不验证 Role.
+     *
+     * @param token 待验证 token.
+     * @param id    验证 User 的 id.
+     * @return 返回验证状态.
      */
     public static boolean verifyToken(String token, long id) {
         boolean verifyStatus = true;
@@ -99,26 +136,6 @@ public class TokenUtil {
         if (!claims.getIssuer().equals(ISSUER)) {
             verifyStatus = false;
         } else if (!claims.getId().equals(String.valueOf(id))) {
-            verifyStatus = false;
-        }
-
-        return verifyStatus;
-    }
-
-    public static boolean verifyTokenAdmin(String token) {
-        boolean verifyStatus = true;
-        Claims claims;
-        try {
-            claims = Jwts.parser()
-                    .setSigningKey(KEY)
-                    .parseClaimsJws(token).getBody();
-        } catch (Exception e) {
-            return false;
-        }
-
-        if (!claims.getIssuer().equals(ISSUER)) {
-            verifyStatus = false;
-        } else if (!claims.getSubject().equals(String.valueOf(RoleEnum.ADMIN))) {
             verifyStatus = false;
         }
 
