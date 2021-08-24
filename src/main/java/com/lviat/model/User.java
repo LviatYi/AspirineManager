@@ -18,7 +18,7 @@ public class User {
     /**
      * 用户 ID..
      */
-    int id;
+    long id;
 
     /**
      * 用户名..

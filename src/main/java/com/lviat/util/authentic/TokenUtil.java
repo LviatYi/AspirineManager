@@ -49,7 +49,7 @@ public class TokenUtil {
      * @param id            用户 id.
      * @param effectiveTime 有效时间.单位 ms.
      */
-    public static String createToken(int id, int userType, long effectiveTime) {
+    public static String createToken(long id, int userType, long effectiveTime) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
@@ -75,7 +75,7 @@ public class TokenUtil {
      *
      * @param id 用户 id.
      */
-    public static String createToken(int id, int userType) {
+    public static String createToken(long id, int userType) {
         return createToken(id, userType, TOKEN_EFFECTIVE_TIME);
     }
 
@@ -86,7 +86,7 @@ public class TokenUtil {
      * @param token 待验证 token.
      * @param id    验证 User 的 id.
      */
-    public static boolean verifyToken(String token, int id) {
+    public static boolean verifyToken(String token, long id) {
         boolean verifyStatus = true;
         Claims claims;
         try {
