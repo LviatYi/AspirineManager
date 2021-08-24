@@ -16,7 +16,7 @@ import java.io.InputStream;
  * @date 2021/8/22
  */
 public class MybatisUtil {
-    public SqlSession getSession() {
+    public static SqlSession getSession() {
         SqlSession sqlSession = null;
         try {
             String resource = "mybatis-config.xml";
@@ -28,9 +28,5 @@ public class MybatisUtil {
         }
 
         return sqlSession;
-    }
-
-    public void closeSession(SqlSession sqlSession) {
-        sqlSession.close();
     }
 }
