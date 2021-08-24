@@ -33,7 +33,15 @@ public enum UserServiceStatus {
     /**
      * 验证失败.
      */
-    VERITY_NOT_PASS(4, "Verity not pass");
+    VERITY_NOT_PASS(4, "Verity not pass"),
+    /**
+     * 权限不足.
+     */
+    PERMISSION_DENIED(5, "Permission denied"),
+    /**
+     * 权限到期.
+     */
+    PERMISSION_EXPIRE(6, "Permission expire");
 
     /**
      * 状态码.
