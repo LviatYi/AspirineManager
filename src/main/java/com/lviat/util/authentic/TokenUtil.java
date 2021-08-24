@@ -31,16 +31,24 @@ public class TokenUtil {
     //类加载时初始化.
     //从 token.config 配置文件中获取相关属性.
     static {
+        boolean readStatus = true;
         Properties properties = new Properties();
-        InputStream inputStream = TokenUtil.class.getClassLoader().getResourceAsStream("token.config");
         try {
+            InputStream inputStream = TokenUtil.class.getClassLoader().getResourceAsStream("token.config");
             properties.load(inputStream);
         } catch (IOException ioException) {
             ioException.printStackTrace();
+            readStatus = false;
         }
-        TOKEN_EFFECTIVE_TIME = Long.parseLong(properties.getProperty("token_effective_time"));
-        ISSUER = properties.getProperty("issuer");
-        KEY = properties.getProperty("key");
+        if (readStatus) {
+            TOKEN_EFFECTIVE_TIME = Long.parseLong(properties.getProperty("token_effective_time"));
+            ISSUER = properties.getProperty("issuer");
+            KEY = properties.getProperty("key");
+        } else {
+            TOKEN_EFFECTIVE_TIME = 86400;
+            ISSUER = "com.lviat.Aspn";
+            KEY = "backD";
+        }
     }
 
     /**

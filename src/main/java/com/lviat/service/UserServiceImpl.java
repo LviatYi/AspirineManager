@@ -9,8 +9,11 @@ import com.lviat.util.dao.MybatisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * User Service impl.
@@ -23,6 +26,26 @@ import java.util.List;
 @Slf4j
 public class UserServiceImpl implements UserService {
     SqlSession session;
+    private static final int MAX_PAGE_SIZE;
+
+    //类加载时初始化.
+    //从 token.config 配置文件中获取相关属性.
+    static {
+        boolean readStatus = true;
+        Properties properties = new Properties();
+        try {
+            InputStream inputStream = TokenUtil.class.getClassLoader().getResourceAsStream("front.config");
+            properties.load(inputStream);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+            readStatus = false;
+        }
+        if (readStatus) {
+            MAX_PAGE_SIZE = Integer.parseInt(properties.getProperty("max_page_size"));
+        } else {
+            MAX_PAGE_SIZE = 30;
+        }
+    }
 
     @Override
     public UserServiceStatus addUser(User user) {
