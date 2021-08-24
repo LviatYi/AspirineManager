@@ -53,11 +53,9 @@ public class A1AuthenticFilter implements Filter {
             }
         }
 
-        if(!verify)
-        {
+        if (!verify) {
             response.sendRedirect(UrlText.URL_LOGIN + ".jsp");
-        } else
-        {
+        } else {
             filterChain.doFilter(request, response);
         }
     }
