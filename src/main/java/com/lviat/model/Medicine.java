@@ -19,7 +19,7 @@ public class Medicine {
     /**
      * 药品 ID.
      */
-    private int id;
+    private long id;
 
     /**
      * 药品编码.
@@ -39,7 +39,7 @@ public class Medicine {
     /**
      * 库存数量.
      */
-    private int inventoryCount;
+    private long inventoryCount;
 
     /**
      * 生产日期.
@@ -54,5 +54,5 @@ public class Medicine {
     /**
      * 类别 ID.
      */
-    private int typeId;
+    private long typeId;
 }

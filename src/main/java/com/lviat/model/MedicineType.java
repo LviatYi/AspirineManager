@@ -19,7 +19,7 @@ public class MedicineType {
     /**
      * 类别 ID.
      */
-    private int typeId;
+    private long typeId;
 
     /**
      * 类别名称.

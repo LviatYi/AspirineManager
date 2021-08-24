@@ -17,7 +17,7 @@ public class Consumer {
     /**
      * 消费者.
      */
-    private int id;
+    private long id;
 
     /**
      * 姓名.
