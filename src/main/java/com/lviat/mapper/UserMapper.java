@@ -1,5 +1,6 @@
 package com.lviat.mapper;
 
+import com.lviat.model.User;
 import com.lviat.model.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -92,4 +93,10 @@ public interface UserMapper {
      * @mbg.generated Mon Aug 23 12:13:01 CST 2021
      */
     int updateByPrimaryKey(User record);
+
+    /**
+     * 选择所有 User.
+     * @return 所有 User.
+     */
+    List<User> selectAll();
 }
