@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 用户认证过滤器.
@@ -28,33 +30,50 @@ public class A1AuthenticFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String url = request.getRequestURI();
+        boolean verify = true;
+        boolean isRelease = true;
 
-        if (request.getRequestURI().contains(UrlText.URL_LOGIN)) {
+        // 需要验证的 URL 所含关键字.
+        List<String> verifyKey = Arrays.asList(
+                ".do",
+                ".jsp");
+        List<String> releaseKey = Arrays.asList(
+                "index.jsp",
+                UrlText.LOGIN);
+
+        for (String key : verifyKey) {
+            if (url.contains(key)) {
+                isRelease = false;
+                break;
+            }
+        }
+        for (String key : releaseKey) {
+            if (url.contains(key)) {
+                isRelease = true;
+                break;
+            }
+        }
+
+        if (isRelease) {
             //放行登录请求
             filterChain.doFilter(request, response);
             return;
         }
 
-        boolean verify = true;
+        long userId = (long) request.getSession().getAttribute(RelationText.WEB_USER_ID);
 
-        String userId = (String) request.getSession().getAttribute(RelationText.WEB_USER_ID);
-
-        if (userId == null || "".equals(userId)) {
-            verify = false;
-        } else {
-            if (!request.getRequestURI().contains(UrlText.URL_LOGIN+".jsp")) {
-                //从请求头中获取token
-                String token = request.getHeader("token");
-                if (token == null || "".equals(token)) {
-                    verify = false;
-                } else {
-                    verify = TokenUtil.verifyToken(token, Integer.parseInt(userId));
-                }
+        if (!request.getRequestURI().contains(UrlText.LOGIN + ".jsp")) {
+            //从请求头中获取 token
+            String token = request.getHeader("token");
+            if (token == null || "".equals(token)) {
+                verify = false;
+            } else {
+                verify = TokenUtil.verifyToken(token, userId);
             }
         }
 
         if (!verify) {
-            response.sendRedirect(UrlText.URL_LOGIN + ".jsp");
+            response.sendRedirect(UrlText.LOGIN + ".jsp");
         } else {
             filterChain.doFilter(request, response);
         }
