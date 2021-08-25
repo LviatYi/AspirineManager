@@ -10,15 +10,19 @@ package com.lviat.util.constant.text;
  */
 public class UrlText {
     /**
+     * 首页 Url.
+     */
+    final public static String INDEX = "/index";
+    /**
      * 登录页 Url.
      */
-    final public static String URL_LOGIN = "/login";
+    final public static String LOGIN = "/login";
     /**
      * 登出页 Url.
      */
-    final public static String URL_LOGOUT = "/logout";
+    final public static String LOGOUT = "/logout";
     /**
      * 用户管理页 Url.
      */
-    final public static String URL_USER_MANAGER = "/admin/user-manage";
+    final public static String USER_MANAGER = "/admin/user-manage";
 }
