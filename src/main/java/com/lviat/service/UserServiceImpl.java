@@ -139,7 +139,7 @@ public class UserServiceImpl implements UserService {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.selectByPrimaryKey(userId);
 
-            if (status == UserServiceStatus.SUCCESSFUL && user != null) {
+            if (status == UserServiceStatus.SUCCESSFUL && user == null) {
                 status = UserServiceStatus.USER_NOT_EXIST;
             }
             if (status == UserServiceStatus.SUCCESSFUL && !user.getPassword().equals(password)) {
