@@ -37,7 +37,7 @@ public class A1AuthenticFilter implements Filter {
 
         boolean verify = true;
 
-        String userId = (String) request.getSession().getAttribute(RelationText.Web_USER_ID);
+        String userId = (String) request.getSession().getAttribute(RelationText.WEB_USER_ID);
 
         if (userId == null || "".equals(userId)) {
             verify = false;
