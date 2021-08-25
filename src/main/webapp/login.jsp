@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="total">
-    <form action="${pageContext.request.contextPath}/login.manager" method="post">
+    <form action="${pageContext.request.contextPath}/login.do" method="post">
         <table id="tab">
             <tr>
                 <td>用户名</td>

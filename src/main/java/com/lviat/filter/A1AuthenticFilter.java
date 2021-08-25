@@ -42,7 +42,7 @@ public class A1AuthenticFilter implements Filter {
         if (userId == null || "".equals(userId)) {
             verify = false;
         } else {
-            if (!request.getRequestURI().contains("index.jsp")) {
+            if (!request.getRequestURI().contains(UrlText.URL_LOGIN+".jsp")) {
                 //从请求头中获取token
                 String token = request.getHeader("token");
                 if (token == null || "".equals(token)) {
