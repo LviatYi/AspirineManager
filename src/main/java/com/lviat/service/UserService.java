@@ -49,6 +49,15 @@ public interface UserService {
     UserServiceStatus verifyPassword(long userId, String password);
 
     /**
+     * 获取用户.
+     *
+     * @param user 传入形参 用户.
+     * @param userId  User ID.
+     * @return service status.
+     */
+    UserServiceStatus getUser(User user, long userId);
+
+    /**
      * 获取所有用户.
      * 具有尾增特性.
      *

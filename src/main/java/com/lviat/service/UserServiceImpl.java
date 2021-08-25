@@ -159,6 +159,39 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserServiceStatus getUser(User user, long userId) {
+        UserServiceStatus status = UserServiceStatus.SUCCESSFUL;
+        User result = null;
+
+        try {
+            session = MybatisUtil.getSession();
+            UserMapper mapper = session.getMapper(UserMapper.class);
+
+            result = mapper.selectByPrimaryKey(userId);
+
+            if (result != null) {
+                user.setId(userId);
+                user.setName(result.getName());
+                user.setUsername(result.getUsername());
+                user.setRole(result.getRole());
+                user.setPhoneNum(result.getPhoneNum());
+            } else {
+                status = UserServiceStatus.USER_NOT_EXIST;
+            }
+
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            status = UserServiceStatus.UNKNOWN_ERROR;
+            session.rollback();
+        } finally {
+            session.close();
+        }
+
+        return status;
+    }
+
+    @Override
     public UserServiceStatus getUser(List<User> users, int page, int size) {
         UserServiceStatus status = UserServiceStatus.SUCCESSFUL;
         List<User> result = new ArrayList<>();
