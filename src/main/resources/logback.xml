@@ -60,13 +60,13 @@
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
-        <file>${logPath}/NRS.log</file>
+        <file>${logPath}/${appName}.log</file>
         <encoder>
             <pattern>${fileLogPattern}</pattern>
             <charset>${encoding}</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logPath}/NRS-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>

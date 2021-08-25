@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,12 +16,12 @@
             <tr>
                 <td>用户名</td>
                 <td><input type="text"
-                           placeholder="请输入用户名" id="username" title="请输入用户名" name="username"/></td>
+                           placeholder="请输入用户 ID" id="username" title="请输入用户 ID" name="userId"/></td>
             </tr>
             <tr>
                 <td>用户密码</td>
                 <td><input type="password"
-                           placeholder="请输入用户密码" id="password" title="请输入密码" name="password"/></td>
+                           placeholder="请输入密码" id="password" title="请输入密码" name="password"/></td>
             </tr>
             <tr>
                 <td><input type="submit" id="submit" value="登陆"/></td>
