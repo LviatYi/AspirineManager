@@ -19,7 +19,7 @@ import java.io.IOException;
  * @className UserLogoutServlet
  * @date 2021/7/31
  */
-@WebServlet(name = "UserLogoutServlet", urlPatterns = UrlText.URL_LOGOUT + ".do")
+@WebServlet(name = "UserLogoutServlet", urlPatterns = UrlText.LOGOUT + ".do")
 public class UserLogoutServlet extends HttpServlet {
 
     UserServiceImpl userService;
@@ -41,6 +41,6 @@ public class UserLogoutServlet extends HttpServlet {
             resp.setHeader("token", "");
         }
 
-        resp.sendRedirect(UrlText.URL_LOGIN + ".jsp");
+        resp.sendRedirect(UrlText.LOGIN + ".jsp");
     }
 }
