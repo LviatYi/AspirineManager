@@ -26,7 +26,7 @@ import java.io.IOException;
  * @date 2021/7/28
  */
 @Slf4j
-@WebServlet(name = "UserLoginServlet", urlPatterns = UrlText.URL_LOGIN + ".do")
+@WebServlet(name = "UserLoginServlet", urlPatterns = UrlText.LOGIN + ".do")
 public class UserLoginServlet extends HttpServlet {
     UserServiceImpl userService;
 
@@ -78,7 +78,7 @@ public class UserLoginServlet extends HttpServlet {
                     break;
                 case SUCCESSFUL:
                     log.info("User login.Id : " + userId);
-                    resp.sendRedirect(UrlText.URL_LOGIN + ".jsp");
+                    resp.sendRedirect(UrlText.INDEX + ".jsp");
                 case VERITY_NOT_PASS:
                     /*
                      * TODO_LviatYi 提示前端密码错误.
