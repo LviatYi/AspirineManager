@@ -118,6 +118,7 @@
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
+                    <include>**/*.config</include>
                 </includes>
             </resource>
             <resource>
@@ -125,6 +126,7 @@
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
+                    <include>**/*.config</include>
                 </includes>
             </resource>
         </resources>
