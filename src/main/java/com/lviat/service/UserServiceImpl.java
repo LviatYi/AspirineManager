@@ -8,6 +8,7 @@ import com.lviat.util.authentic.TokenUtil;
 import com.lviat.util.dao.MybatisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -219,7 +220,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserServiceStatus getUser(List<User> users, int page) {
-        return getUser(users, page, 5);
+        return getUser(users, page, MAX_PAGE_SIZE);
     }
 
     @Override

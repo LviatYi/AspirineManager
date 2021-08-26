@@ -1,6 +1,7 @@
 package com.lviat.servlet;
 
 import com.lviat.model.User;
+import com.lviat.service.UserService;
 import com.lviat.service.UserServiceImpl;
 import com.lviat.service.UserServiceStatus;
 import com.lviat.util.authentic.TokenUtil;
@@ -28,7 +29,7 @@ import java.io.IOException;
 @Slf4j
 @WebServlet(name = "UserLoginServlet", urlPatterns = UrlText.LOGIN + ".do")
 public class UserLoginServlet extends HttpServlet {
-    UserServiceImpl userService;
+    UserService userService;
 
     public UserLoginServlet() {
         userService = new UserServiceImpl();
