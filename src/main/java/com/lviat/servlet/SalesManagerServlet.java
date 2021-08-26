@@ -7,6 +7,7 @@ import com.lviat.service.ConsumerService;
 import com.lviat.service.ConsumerServiceImpl;
 import com.lviat.service.SalesInfoService;
 import com.lviat.service.SalesInfoServiceImpl;
+import com.lviat.util.constant.text.MethodText;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -37,25 +38,24 @@ public class SalesManagerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Consumer newConsumer = JSON.parseObject(req.getParameter("consumer"), Consumer.class);
-        SalesInfo salesInfo  = JSON.parseObject(req.getParameter("salesInfo"),SalesInfo.class);
-        switch (req.getParameter("method")) {
-            case "consumer-add":
+        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
+        switch (req.getParameter(MethodText.METHOD)) {
+            case MethodText.CONSUMER_ADD:
                 consumerService.addConsumer(newConsumer);
                 break;
-            case "consumer-del":
+            case MethodText.CONSUMER_DEL:
                 consumerService.delConsumer(newConsumer.getId());
                 break;
-            case "consumer-modify":
+            case MethodText.CONSUMER_MODIFY:
                 consumerService.modifyConsumer(newConsumer);
                 break;
-
-            case "salesInfo-add":
+            case MethodText.SALES_INFO_ADD:
                 salesInfoService.addSalesInfo(salesInfo);
                 break;
-            case "salesInfo-del":
+            case MethodText.SALES_INFO_DEL:
                 salesInfoService.delSalesInfo(salesInfo.getId());
                 break;
-            case "salesInfo-modify":
+            case MethodText.SALES_INFO_MODIFY:
                 salesInfoService.modifySalesInfo(salesInfo);
                 break;
             default:
