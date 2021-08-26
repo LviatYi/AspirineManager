@@ -4,6 +4,7 @@ import="com.lviat.util.constant.text.RelationText"%>
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Aspirine | Login</title>
     <link
       rel="stylesheet"
