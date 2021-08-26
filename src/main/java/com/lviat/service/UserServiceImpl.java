@@ -246,6 +246,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserServiceStatus modifyUser(User user) {
+        UserServiceStatus status = UserServiceStatus.SUCCESSFUL;
+
+        try {
+            session = MybatisUtil.getSession();
+            UserMapper mapper = session.getMapper(UserMapper.class);
+
+            if (status == UserServiceStatus.SUCCESSFUL && mapper.selectByPrimaryKey(user.getId()) == null) {
+                status = UserServiceStatus.USER_NOT_EXIST;
+            }
+            if (status == UserServiceStatus.SUCCESSFUL) {
+                mapper.updateByPrimaryKey(user);
+            }
+
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            status = UserServiceStatus.UNKNOWN_ERROR;
+            session.rollback();
+        } finally {
+            session.close();
+        }
+
+        return status;
+    }
+
+    @Override
     public String getToken(long userId) {
         String token = null;
 

@@ -2,8 +2,7 @@ package com.lviat.service;
 
 import com.github.pagehelper.PageHelper;
 import com.lviat.mapper.MedicineMapper;
-import com.lviat.mapper.MedicineMapper;
-import com.lviat.model.Medicine;
+import com.lviat.mapper.UserMapper;
 import com.lviat.model.Medicine;
 import com.lviat.model.MedicineExample;
 import com.lviat.util.authentic.TokenUtil;
@@ -170,7 +169,29 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public MedicineServiceStatus modifyMedicine(Medicine medicine) {
-        return null;
+        MedicineServiceStatus status = MedicineServiceStatus.SUCCESSFUL;
+
+        try {
+            session = MybatisUtil.getSession();
+            MedicineMapper mapper = session.getMapper(MedicineMapper.class);
+
+            if (status == MedicineServiceStatus.SUCCESSFUL && mapper.selectByPrimaryKey(medicine.getId()) == null) {
+                status = MedicineServiceStatus.MEDICINE_NOT_EXIST;
+            }
+            if (status == MedicineServiceStatus.SUCCESSFUL) {
+                mapper.updateByPrimaryKey(medicine);
+            }
+
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            status = MedicineServiceStatus.UNKNOWN_ERROR;
+            session.rollback();
+        } finally {
+            session.close();
+        }
+
+        return status;
     }
 
     @Override
