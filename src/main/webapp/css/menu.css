@@ -1,0 +1,23 @@
+* {
+	margin: 0px;
+}
+
+.divmenu {
+	background-image: url(/img/m1.jpg);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+
+.divmenu dt {
+	line-height: 33px;
+	cursor: pointer;
+}
+
+.divmenu dd {
+	font-size: 14px;
+}
+
+.divmenu dd:hover {
+	background-color: #4C8C1C;
+	cursor:pointer;
+}

@@ -1,0 +1,34 @@
+* {
+	margin: 0px;
+}
+
+#top {
+	line-height: 35px;
+	background-image: url(/img/title_bg1.jpg);
+}
+
+#contextbotton {
+	margin: auto;
+}
+
+#contextbotton a {
+	margin-left: 10px ;
+	margin-right: 10px;
+}
+
+#tab {
+	width: 90%;
+	margin: auto;
+	margin-top: 50px;
+	border-collapse: collapse;
+}
+
+tr {
+	text-align: center;
+	height: 30px;
+}
+
+textarea{
+	height: 130px;
+	width: 170px;
+}
