@@ -15,8 +15,11 @@ public enum RoleEnum {
     /**
      * 管理员.
      */
-    ADMIN(0, "admin"),
-    VISITOR(1, "visitor");
+    ADMIN(1, "admin"),
+    /**
+     * 访问者.
+     */
+    VISITOR(2, "visitor");
 
     /**
      * 用户类型.
@@ -37,7 +40,7 @@ public enum RoleEnum {
         return this.typeName;
     }
 
-    public int value(){
+    public int value() {
         return this.userType;
     }
 }
