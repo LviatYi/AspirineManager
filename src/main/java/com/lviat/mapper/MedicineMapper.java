@@ -93,4 +93,6 @@ public interface MedicineMapper {
      * @mbg.generated Mon Aug 23 11:33:12 CST 2021
      */
     int updateByPrimaryKey(Medicine record);
+
+    int updateInventoryCountToMinus(@Param("id")long id,@Param("minusCount") long    minusCount);
 }
