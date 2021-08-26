@@ -135,7 +135,7 @@
         <finalName>AspirineManager</finalName>
         <resources>
             <resource>
-                <directory>${basedir}\src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
@@ -143,7 +143,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>${basedir}\src/main/java</directory>
+                <directory>${basedir}/src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
