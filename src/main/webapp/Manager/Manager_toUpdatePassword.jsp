@@ -19,7 +19,7 @@
 			<div class="row" style="height: 80px"></div>
 			<div class="row" style="width: 10px;height: 20px"></div>
 <!--			<div class="row">-->
-<!--				<form action="Manager_selectByPage.html">-->
+<!--				<form action="Manager_selectByPage.jsp">-->
 <!--					<table id="tab" style="margin-top: 30px;">-->
 <!--						<tr>-->
 <!--							<td align="right" style="width:40%;">用户名:</td>-->

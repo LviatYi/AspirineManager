@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/query.css" />
 	<body>
 <!--		<div id="top">当前位置：购买药品&#45;&#45;选购药品</div>-->
-<!--		<form action="Buy_selectByPage.html">-->
+<!--		<form action="Buy_selectByPage.jsp">-->
 <!--			<table id="tab">-->
 <!--				<tr>-->
 <!--					<td align="right" style="width: 45%;">药品编号：</td>-->

@@ -18,11 +18,11 @@
 			</div>
 			<div class="row"style="height: 100px"></div>
 			<div class="row">
-				<form class="form-horizontal">
+				<form class="form-horizontal" method="">
 					<div class="form-group">
 						<label for="typename" class="col-sm-3 control-label">类别名称</label>
 						<div class="col-sm-7">
-							<input type="text" class="form-control" id="typename" >
+							<input type="text" class="form-control" id="typename" name="${RelationText.}" >
 						</div>
 					</div>
 					<div class="form-group">
