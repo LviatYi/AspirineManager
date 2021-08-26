@@ -1,0 +1,25 @@
+body {
+	background-color: #4C8C1C
+}
+#total {
+	margin: auto;
+	background-image: url(/img/login_zh.jpg);
+	width: 990px;
+	height: 680px;
+}
+
+form {
+	position: relative;
+	top:340px;
+}
+
+
+#tab{
+	text-align:center;
+	margin:auto;
+}
+
+#tab input{
+	border-radius:4px;
+	width:150px;
+}

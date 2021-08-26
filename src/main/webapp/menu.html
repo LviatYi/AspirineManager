@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>医药管理列表</title>
+		<link rel="icon" href="img/m1.jpg">
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+		<script src="js/menu.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+			.navbar-nav.dropdown-menu a:hover{background-color: #74d2d9}
+			.dropdown a:hover{background-color: #74d2d9}
+		</style>
+	</head>
+	<body background="img/1.jpg">
+	<nav class="navbar navbar-default" role="navigation" style="background: lavenderblush">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#" style="font-size: 25px;background: #74d2d9">医药管理系统</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							类别管理
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="Category/Category_selectByPage.html" target="show">查看类别</a></li>
+							<li class="divider"></li>
+							<li><a href="Category/Category_toAdd.html" target="show">添加类别</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							药品管理
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="Drug/Drug_selectByPage.html" target="show">查看药品</a></li>
+							<li class="divider"></li>
+							<li><a href="Drug/Drug_toAdd.html" target="show">添加药品</a></li>
+							<li class="divider"></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="Buy/Buy_selectByPage.html" class="dropdown-toggle" data-toggle="dropdown">
+							购买药品
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+
+							<li><a href="Buy/Buy_selectByPage.html" target="show">查看药品</a></li>
+
+
+
+						</ul>
+					</li>
+					<li><a href="Sale/Sale_selectByPage.html" target="show">销售管理</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							系统管理
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="Manager/Manager_selectByPage.html" target="show">查看用户</a></li>
+							<li class="divider"></li>
+							<li><a href="Manager/Manager_toAdd.html" target="show">添加用户</a></li>
+							<li class="divider"></li>
+							<li><a href="Manager/Manager_toUpdatePassword.html" target="show">添加密码</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div style="position: absolute; bottom: 10px; right: 10px; font-size: 30px;color: goldenrod"><a href="./login.html ">
+		<button type="button" class="btn btn-info">EXIT</button></a></div>
+<!--		<div class="divmenu" style="width: 50px">-->
+<!--			<dl>-->
+<!--				<dt onclick="menu(this.parentNode)" style="position:absolute;left: 50px;">  类别管理</dt>-->
+<!--				<dd style="position:absolute;left: 50px;">-->
+
+<!--						<a href="Category/Category_toAdd.html" target="show" style="position:absolute;left: 50px;">添加类别</a>-->
+
+<!--				</dd>-->
+<!--				<dd>-->
+<!--					<a href="Category/Category_selectByPage.html" target="show" style="position:absolute;left: 50px;">查看类别</a>-->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</div>-->
+<!--		-->
+<!--		<div class="divmenu">-->
+<!--			<dl>-->
+<!--				<dt onclick="menu(this.parentNode)">药品管理</dt>-->
+<!--				<dd>-->
+<!--					<a href="../Drug/Drug_toAdd.html" target="show">添加药品</a>-->
+<!--				</dd>-->
+<!--				<dd>-->
+<!--					<a href="Drug/Drug_selectByPage.html" target="show">查看药品</a>-->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</div>-->
+<!--		-->
+<!--		<div class="divmenu">-->
+<!--			<dl>-->
+<!--				<dt onclick="menu(this.parentNode)">购买药品</dt>-->
+<!--				<dd>-->
+<!--					<a href="Buy/Buy_selectByPage.html" target="show">选购药品</a>-->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</div>-->
+<!--		-->
+<!--		<div class="divmenu">-->
+<!--			<dl>-->
+<!--				<dt onclick="menu(this.parentNode)">销售管理</dt>-->
+<!--				<dd>-->
+<!--					<a href="Sale/Sale_selectByPage.html" target="show">查看明细</a>-->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</div>-->
+<!--		-->
+<!--		<div class="divmenu">-->
+<!--			<dl>-->
+<!--				<dt onclick="menu(this.parentNode)">系统管理</dt>-->
+<!--				<dd>-->
+<!--					<a href="Manager/Manager_toAdd.html" target="show">添加用户</a>-->
+<!--				</dd>-->
+<!--				<dd>-->
+<!--					<a href="Manager/Manager_selectByPage.html" target="show">查看用户</a>-->
+<!--				</dd>-->
+<!--				<dd>-->
+<!--					<a href="Manager/Manager_toUpdatePassword.html" target="show">修改密码</a>-->
+<!--				</dd>-->
+<!--			</dl>-->
+<!--		</div>-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="span6">-->
+<!--					<ul class="nav nav-tabs">-->
+<!--						<li class="active"><a href="#">Home</a></li>-->
+<!--						<li><a href="#">About</a></li>-->
+<!--						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">FrontEnd<b class="caret"></b></a>-->
+<!--							<ul class="dropdown-menu">-->
+<!--								<li><a href="#">Twitter Bootstrap</a></li>-->
+<!--								<li><a href="#">Google Plus API</a></li>-->
+<!--								<li><a href="#">HTML5</a></li>-->
+<!--								<li class="divider"></li>-->
+<!--								<li><a href="#">Examples</a></li>-->
+<!--							</ul>-->
+<!--						</li>-->
+<!--						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BackEnd<b class="caret bottom-up"></b></a>-->
+<!--							<ul class="dropdown-menu bottom-up pull-right">-->
+<!--								<li><a href="#">PHP</a></li>-->
+<!--								<li><a href="#">MySQL</a></li>-->
+<!--								<li><a href="#">PostgreSQL</a></li>-->
+<!--								<li class="divider"></li>-->
+<!--								<li><a href="#">Live Demos</a></li>-->
+<!--							</ul>-->
+<!--						</li>-->
+<!--					</ul>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="row">-->
+<!--				<div style="text-align: end;color:blue;font-size:20px; "><a href="./login.html ">退出系统</a></div></div>-->
+<!--		</div>-->
+
+
+
+	</body>
+</html>
