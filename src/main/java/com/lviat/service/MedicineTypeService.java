@@ -1,12 +1,15 @@
 package com.lviat.service;
 
+import com.lviat.model.Medicine;
 import com.lviat.model.MedicineType;
+
+import java.util.List;
 
 /**
  * 药品类别 service.
  *
  * @author Rooter
- * @version 0.1
+ * @version 1.0
  * @interfaceName MedicineTypeService
  * @date 2021/8/26
  */
@@ -18,7 +21,7 @@ public interface MedicineTypeService {
      * @param medicineType 新增药品类别.
      * @return service status.
      */
-    UserServiceStatus addMedicineType(MedicineType medicineType);
+    MedicineTypeServiceStatus addMedicineType(MedicineType medicineType);
 
     /**
      * 删除药品类别.
@@ -26,21 +29,34 @@ public interface MedicineTypeService {
      * @param typeId 删除药品类别.
      * @return service status.
      */
-    UserServiceStatus delMedicineType(long typeId);
+    MedicineTypeServiceStatus delMedicineType(long typeId);
 
     /**
      * 编辑药品类别.
      *
-     * @param typeId 编辑药品类别.
+     * @param medicineType 编辑药品类别.
      * @return service status.
      */
-    UserServiceStatus modifyMedicineType(long typeId);
+    MedicineTypeServiceStatus modifyMedicineType(MedicineType medicineType);
 
     /**
-     * 查看药品类别.
+     * 获取所有药品类别.
+     * 具有尾增特性.
      *
-     * @param typeId 查看药品类别.
+     * @param medicineTypes 传入形参 药品.
+     * @param page      分页页码.
+     * @param size      单页显示数量.
      * @return service status.
      */
-    UserServiceStatus queryMedicineType(long typeId);
+    MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page,int size);
+
+    /**
+     * 获取所有药品类别.
+     * 具有尾增特性.
+     *
+     * @param medicineTypes 传入形参 药品.
+     * @param page      分页页码.
+     * @return service status.
+     */
+    MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page);
 }
