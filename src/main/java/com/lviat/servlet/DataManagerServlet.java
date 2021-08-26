@@ -26,13 +26,14 @@ import java.io.IOException;
 public class DataManagerServlet extends HttpServlet {
     private UserService userService;
     private MedicineService medicineService;
-    private SalesInfoService salesInfoService;
     private MedicineTypeService medicineTypeService;
-    private ConsumerService consumerService;
 
     public DataManagerServlet() {
         this.userService = new UserServiceImpl();
+        this.medicineService = new MedicineServiceImpl();
+        this.medicineTypeService = new MedicineTypeServiceImpl();
     }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

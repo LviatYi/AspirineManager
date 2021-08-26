@@ -2,6 +2,7 @@ package com.lviat.service;
 
 import com.github.pagehelper.PageHelper;
 import com.lviat.mapper.SalesInfoMapper;
+import com.lviat.model.Medicine;
 import com.lviat.model.SalesInfo;
 import com.lviat.model.SalesInfoExample;
 import com.lviat.util.authentic.TokenUtil;
@@ -25,6 +26,7 @@ import java.util.Properties;
 public class SalesInfoServiceImpl implements SalesInfoService {
     SqlSession session;
     private static final int MAX_PAGE_SIZE;
+    Medicine medicine = new Medicine();
 
     //类加载时初始化.
     //从 token.config 配置文件中获取相关属性.
@@ -58,6 +60,7 @@ public class SalesInfoServiceImpl implements SalesInfoService {
             }
             if (status == SalesInfoServiceStatus.SUCCESSFUL) {
                 mapper.insert(salesInfo);
+                medicine.setInventoryCount(medicine.getInventoryCount()-1);
             }
 
             session.commit();
