@@ -326,4 +326,10 @@
       TYPE_ID = #{typeId,jdbcType=NUMERIC}
     where ID = #{id,jdbcType=NUMERIC}
   </update>
+
+  <update id="updateInventoryCountToMinus">
+    update LVIATYI.ASPN_MEDICINE
+    set  INVENTORY_COUNT =INVENTORY_COUNT - #{minusCount,jdbcType=NUMERIC}
+    where ID = #{id,jdbcType=NUMERIC}
+  </update>
 </mapper>

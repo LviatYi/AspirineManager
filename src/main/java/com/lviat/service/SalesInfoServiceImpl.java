@@ -1,6 +1,7 @@
 package com.lviat.service;
 
 import com.github.pagehelper.PageHelper;
+import com.lviat.mapper.MedicineMapper;
 import com.lviat.mapper.SalesInfoMapper;
 import com.lviat.model.Medicine;
 import com.lviat.model.SalesInfo;
@@ -26,7 +27,6 @@ import java.util.Properties;
 public class SalesInfoServiceImpl implements SalesInfoService {
     SqlSession session;
     private static final int MAX_PAGE_SIZE;
-    Medicine medicine = new Medicine();
 
     //类加载时初始化.
     //从 token.config 配置文件中获取相关属性.
@@ -53,15 +53,15 @@ public class SalesInfoServiceImpl implements SalesInfoService {
 
         try {
             session = MybatisUtil.getSession();
-            SalesInfoMapper mapper = session.getMapper(SalesInfoMapper.class);
 
-            if (status ==SalesInfoServiceStatus.SUCCESSFUL && mapper.selectByPrimaryKey(salesInfo.getId()) != null) {
-                status = SalesInfoServiceStatus.SALES_INFO_ALREADY_EXIST;
-            }
+            MedicineMapper medicineMapper = session.getMapper(MedicineMapper.class);
+            SalesInfoMapper salesInfomapper = session.getMapper(SalesInfoMapper.class);
+
             if (status == SalesInfoServiceStatus.SUCCESSFUL) {
-                mapper.insert(salesInfo);
-                medicine.setInventoryCount(medicine.getInventoryCount()-1);
+                salesInfomapper.insert(salesInfo);
+                medicineMapper.updateInventoryCountToMinus(salesInfo.getId(),salesInfo.getSalesCount());
             }
+
 
             session.commit();
         } catch (Exception e) {
