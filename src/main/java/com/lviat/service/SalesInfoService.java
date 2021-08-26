@@ -69,7 +69,7 @@ public interface SalesInfoService {
     long getSalesInfoCount();
     /**
      * 修改销售信息.
-     * 通过 salesinfo 指定销售对象
+     * 通过 salesInfo 指定销售对象
      *
      * @param salesInfo 新的销售信息.
      * @return service status.

@@ -25,11 +25,11 @@ public enum SalesInfoServiceStatus {
     /**
      * 指定销售信息已存在.
      */
-    SALESINFO_ALREADY_EXIST(2, "SalesInfo already exist"),
+    SALES_INFO_ALREADY_EXIST(2, "SalesInfo already exist"),
     /**
      * 指定销售信息不存在.
      */
-    SALESINFO_NOT_EXIST(3, "SalesInfo not exist");
+    SALES_INFO_NOT_EXIST(3, "SalesInfo not exist");
 
     /**
      * 状态码.

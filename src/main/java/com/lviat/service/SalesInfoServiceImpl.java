@@ -54,7 +54,7 @@ public class SalesInfoServiceImpl implements SalesInfoService {
             SalesInfoMapper mapper = session.getMapper(SalesInfoMapper.class);
 
             if (status ==SalesInfoServiceStatus.SUCCESSFUL && mapper.selectByPrimaryKey(salesInfo.getId()) != null) {
-                status = SalesInfoServiceStatus.SALESINFO_ALREADY_EXIST;
+                status = SalesInfoServiceStatus.SALES_INFO_ALREADY_EXIST;
             }
             if (status == SalesInfoServiceStatus.SUCCESSFUL) {
                 mapper.insert(salesInfo);
@@ -81,7 +81,7 @@ public class SalesInfoServiceImpl implements SalesInfoService {
             SalesInfoMapper mapper = session.getMapper(SalesInfoMapper.class);
 
             if (status == SalesInfoServiceStatus.SUCCESSFUL && mapper.selectByPrimaryKey(salesInfoId) != null) {
-                status = SalesInfoServiceStatus.SALESINFO_NOT_EXIST;
+                status = SalesInfoServiceStatus.SALES_INFO_NOT_EXIST;
             }
             if (status == SalesInfoServiceStatus.SUCCESSFUL) {
                 mapper.deleteByPrimaryKey(salesInfoId);
@@ -118,7 +118,7 @@ public class SalesInfoServiceImpl implements SalesInfoService {
                 salesInfo.setPayment(result.getPayment());
                 salesInfo.setConsumerId(result.getConsumerId());
             } else {
-                status = SalesInfoServiceStatus.SALESINFO_NOT_EXIST;
+                status = SalesInfoServiceStatus.SALES_INFO_NOT_EXIST;
             }
 
             session.commit();
