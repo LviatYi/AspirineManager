@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * TODO_LviatYi
+ * Medicine Service Status.
  *
  * @author LviatYi
- * @version TODO_LviatYi
+ * @version 1.0
  * @enumName MedicineServiceStatus
  * @date 2021/8/26
  */
