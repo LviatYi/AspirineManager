@@ -51,8 +51,8 @@ public interface UserService {
     /**
      * 获取用户.
      *
-     * @param user 传入形参 用户.
-     * @param userId  User ID.
+     * @param user   传入形参 用户.
+     * @param userId User ID.
      * @return service status.
      */
     UserServiceStatus getUser(User user, long userId);
@@ -91,6 +91,7 @@ public interface UserService {
      * 若无此用户则返回 null.
      *
      * @param userId 申请者 id.
+     * @return token.
      */
     String getToken(long userId);
 }

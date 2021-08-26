@@ -14,83 +14,64 @@ import java.util.List;
  */
 public interface MedicineService {
     /**
-     * 增加用户.
+     * 增加药品.
      *
-     * @param medicine 新增用户.
+     * @param medicine 新增药品.
      * @return service status.
      */
     MedicineServiceStatus addMedicine(Medicine medicine);
 
     /**
-     * 删除用户.
+     * 删除药品.
      *
-     * @param medicineId 删除用户 id.
+     * @param medicineId 删除药品 id.
      * @return service status.
      */
     MedicineServiceStatus delMedicine(long medicineId);
 
     /**
-     * 验证 token.
+     * 获取药品.
      *
-     * @param medicineId 用户 id.
-     * @param token  待验证 Token.
-     * @param role   需要的 Role 权限.
-     * @return service status.
-     */
-    MedicineServiceStatus verifyToken(long medicineId, String token, int role);
-
-    /**
-     * 验证密码.
-     *
-     * @param medicineId   用户 id.
-     * @param password 待验证密码.
-     * @return service status.
-     */
-    MedicineServiceStatus verifyPassword(long medicineId, String password);
-
-    /**
-     * 获取用户.
-     *
-     * @param medicine 传入形参 用户.
-     * @param medicineId  Medicine ID.
+     * @param medicine   传入形参 药品.
+     * @param medicineId Medicine ID.
      * @return service status.
      */
     MedicineServiceStatus getMedicine(Medicine medicine, long medicineId);
 
     /**
-     * 获取所有用户.
+     * 获取所有药品.
      * 具有尾增特性.
      *
-     * @param medicines 传入形参 用户.
-     * @param page  分页页码.
+     * @param medicines 传入形参 药品.
+     * @param page      分页页码.
      * @return service status.
      */
     MedicineServiceStatus getMedicine(List<Medicine> medicines, int page);
 
     /**
-     * 获取所有用户.
+     * 获取所有药品.
      * 具有尾增特性.
      *
-     * @param medicines 传入形参 用户.
-     * @param page  分页页码.
-     * @param size  单页显示数量.
+     * @param medicines 传入形参 药品.
+     * @param page      分页页码.
+     * @param size      单页显示数量.
      * @return service status.
      */
     MedicineServiceStatus getMedicine(List<Medicine> medicines, int page, int size);
 
     /**
-     * 获取用户数量.
+     * 修改药品信息.
+     * 通过 medicine 指定药品对象.
      *
-     * @return 所有用户数量.
+     * @param medicine 新的药品信息.
+     * @return service status.
      */
-    long getMedicineCount();
+    MedicineServiceStatus modifyMedicine(Medicine medicine);
 
     /**
-     * 获取 token.
-     * token 将包含 Role 与有效时间（默认为 24 小时）信息.
-     * 若无此用户则返回 null.
+     * 获取药品数量.
      *
-     * @param medicineId 申请者 id.
+     * @return 所有药品数量.
      */
-    String getToken(long medicineId);
+    long getMedicineCount();
 }

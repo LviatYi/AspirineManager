@@ -202,7 +202,7 @@ public class UserServiceImpl implements UserService {
             UserMapper mapper = session.getMapper(UserMapper.class);
 
             PageHelper.startPage(page, size);
-            result = mapper.selectAll();
+            result = mapper.selectByExample(new UserExample());
 
             users.addAll(result);
 
