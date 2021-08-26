@@ -51,10 +51,12 @@ public class UserLoginServlet extends HttpServlet {
             String password = req.getParameter(RelationText.WEB_USER_PASSWORD);
 
             status = userService.verifyPassword(userId, password);
+            log.debug(userId + " " + status.toString());
 
             User loginUser = new User();
             if (status == UserServiceStatus.SUCCESSFUL) {
                 status = userService.getUser(loginUser, userId);
+                log.debug(userId + " " + status.toString());
             }
 
             if (status == UserServiceStatus.SUCCESSFUL) {
@@ -76,6 +78,7 @@ public class UserLoginServlet extends HttpServlet {
                      * TODO_LviatYi 提示前端错误信息.
                      * date 2021/8/25
                      */
+                    log.debug(userId + " " + status.toString());
                     break;
                 case SUCCESSFUL:
                     log.info("User login.Id : " + userId);
@@ -85,6 +88,7 @@ public class UserLoginServlet extends HttpServlet {
                      * TODO_LviatYi 提示前端密码错误.
                      * date 2021/8/25
                      */
+                    log.info(userId + " " + status.toString());
                     break;
             }
         }
