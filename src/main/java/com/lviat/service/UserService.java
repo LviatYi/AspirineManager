@@ -86,6 +86,15 @@ public interface UserService {
     long getUserCount();
 
     /**
+     * 修改用户信息.
+     * 通过 medicine 指定用户对象.
+     *
+     * @param user 新的用户信息.
+     * @return service status.
+     */
+    UserServiceStatus modifyUser(User user);
+
+    /**
      * 获取 token.
      * token 将包含 Role 与有效时间（默认为 24 小时）信息.
      * 若无此用户则返回 null.
