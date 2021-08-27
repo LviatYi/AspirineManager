@@ -75,12 +75,16 @@ import="java.util.List"
 
 		</table>
 		</div>
-		<div class="col-md-6" id="page_context">
+	<div class="container">
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-5">总页数：1页 <button class="btn" id="prePage">上一页</button>
+				<button class="btn" id="btn1">1</button>
+				<button class="btn" id="sufPage">下一页</button></div>
 		</div>
-		<!--分页条信息 -->
-		<div class="col-md-6" id="page_info">
-
-		</div>
+	</div>
 	<script type="text/javascript">
 		$("#update").click(function () {
 			window.location.href="../Category/Category_toAdd.jsp"

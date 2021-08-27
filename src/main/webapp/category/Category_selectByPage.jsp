@@ -50,7 +50,7 @@ import="java.util.List"
 				</tr>
 
 				<%
-                    for (MedicineType medicineType : medicineTypeList) {
+                    for (MedicineType medicineType : medicineList) {
                 %>
                 <tr>
                     <td><%=medicineType.getTypeId()%></td>
@@ -58,7 +58,11 @@ import="java.util.List"
                     <td><%=medicineType.getCreateDate()%></td>
                     <td><%=medicineType.getDescribe()%></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_MODIFY%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>&<%=RelationText.WEB_MEDICINE_TYPE_CODE%>=<%=medicineType.getCode()%>&<%=RelationText.WEB_MEDICINE_NAME%>=<%=medicineType.getName()%>&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicineType.getPrice()%>&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicineType.getPrice()%>&&<%=RelationText.WEB_MEDICINE_INVENTORY_COUNT%>=<%=medicineType.getInventoryCount()%>&<%=RelationText.WEB_MEDICINE_PRODUCTION_DATE%>=<%=medicineType.getProductionDate()%>&<%=RelationText.WEB_MEDICINE_VENDOR_NAME%>=<%=medicineType.getVendorName()%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>">编辑</a>
+                        <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_MODIFY%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>
+                        &<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>
+                        &<%=RelationText.WEB_MEDICINE_NAME%>=<%=medicineType.getTypeName()%>
+                        &<%=RelationText.WEB_MEDICINE_TYPE_CREATE_DATE%>=<%=medicineType.getCreateDate()%>
+                        &<%=RelationText.WEB_MEDICINE_TYPE_DESCRIBE%>=<%=medicineType.getDescribe()%>">编辑</a>
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_DEL%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>"
@@ -68,19 +72,23 @@ import="java.util.List"
                     }
                 %>
 
-				</c:forEach>
 
-				</tbody>
+
+
 			</table>
 			</div>
-		<div class="col-md-6" id="page_context">
+	<div class="container">
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-5">总页数：1页 <button class="btn" id="prePage">上一页</button>
+				<button class="btn" id="btn1">1</button>
+				<button class="btn" id="sufPage">下一页</button></div>
 		</div>
-<!--分页条信息 -->
-		<div class="col-md-6" id="page_info">
+	</div>
 
 		</div>
-	<script type="text/javascript">
 
-	</script>
 	</body>
 </html>

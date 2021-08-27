@@ -55,6 +55,15 @@
 	<div class="col-md-6" id="page_info">
 
 	</div>
-
+	<div class="container">
+		<div class="row"></div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-5">总页数：1页 <button class="btn" id="prePage">上一页</button>
+				<button class="btn" id="btn1">1</button>
+				<button class="btn" id="sufPage">下一页</button></div>
+		</div>
+	</div>
 </body>
 </html>
