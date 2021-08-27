@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%> <%@ page
-		 import ="com.lviat.service.UserService"
-		 import ="com.lviat.service.UserServiceImpl"
-		 import ="com.lviat.service.UserServiceStatus"
+		pageEncoding="UTF-8" 
+		import ="com.lviat.service.UserService"
+		import ="com.lviat.service.UserServiceImpl"
+		import ="com.lviat.service.UserServiceStatus"
 		import="com.lviat.util.constant.text.RelationText"
 		import="com.lviat.util.constant.text.MethodText"
 		import="com.lviat.model.User"
@@ -64,24 +64,24 @@
 				<td>管理员</td>
 
 			</tr>
-			        <%
-                        for(User user:userList){
-                    %>
-                    <tr>
-                        <td>${user.getId}</td>
-                        <td>${user.getUsername}</td>
-                        <td>${user.getName}</td>
-                        <td>${user.getPhoneNum}</td>
-                        <td>${user.getRole}</td>
-                        <td><a href="${pageContext.request.contextPath}/toadd.category?id=<%=c.getId()%>&cname=<%=c.getCname()%>&description=<%=c.getDescription()%>">编辑</a></td>
-                        <td><a href="${pageContext.request.contextPath}/delete.category?id=<%=c.getId()%>" class="delete">删除</a></td>
-                        <td><a href="">编辑</a></td>
-                                                                                                                                     				<td><a href="">重置密码</a></td>
-                                                                                                                                     				<td><a href="">删除</a></td>
-                    </tr>
-                    <%
-                        }
-                    %>
+			<%
+				for(User user:userList){
+			%>
+			<tr>
+				<td>${user.getId}</td>
+				<td>${user.getUsername}</td>
+				<td>${user.getName}</td>
+				<td>${user.getPhoneNum}</td>
+				<td>${user.getRole}</td>
+				<td><a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.USER_MODIFY%>,id=<%=user.getId()%>&username=<%=user.getUsername()%>&name=<%=user.getName()%>">编辑</a></td>
+				<td><a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.USER_DEL%>,id=<%=user.getId()%>" class="delete">删除</a></td>
+				<td><a href="">编辑</a></td>
+				<td><a href="">重置密码</a></td>
+				<td><a href="">删除</a></td>
+			</tr>
+			<%
+				}
+			%>
 
 			
 		</table>
