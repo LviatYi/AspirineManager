@@ -2,6 +2,7 @@
 		 pageEncoding="UTF-8"%> <%@ page
 		import="com.lviat.util.constant.text.RelationText"
 		import="com.lviat.util.constant.text.MethodText"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,14 +37,16 @@
 				<th style="text-align: center">销售价格</th>
 				<th style="text-align: center">购买人ID</th>
 			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
+			<c:forEach items="${list}" var="item">
+				<tr>
+					<td>${item.id}</td>
+					<td>${item.salesDate}</td>
+					<td>${item.medicineId}</td>
+					<td>${item.salesCount}</td>
+					<td>${item.payment}</td>
+					<td>${item.consumerId}</td>
+				</tr>
+			</c:forEach>
 
 		</table>
 	</div>
