@@ -44,7 +44,7 @@ import="com.lviat.util.constant.text.MethodText"%>
 		</tr>
 		<c:forEach items="${list}" var="item">
 			<tr>
-				
+
 			</tr>
 		</c:forEach>
 
