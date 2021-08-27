@@ -16,6 +16,7 @@ public class RelationText {
     final public static String USER_TABLE_NAME = "User";
 
     final public static String WEB_USER = "user";
+    final public static String WEB_USER_LIST = "users";
     final public static String WEB_USER_ID = "user_id";
     final public static String WEB_USER_USERNAME = "user_username";
     final public static String WEB_USER_NAME = "user_name";
@@ -24,10 +25,16 @@ public class RelationText {
     final public static String WEB_USER_ROLE = "user_role";
 
     final public static String WEB_MEDICINE = "medicine";
+    final public static String WEB_MEDICINE_LIST = "medicines";
+
     final public static String WEB_MEDICINE_ID = "medicine_id";
 
     final public static String WEB_MEDICINE_TYPE = "medicine_type";
     final public static String WEB_MEDICINE_TYPE_ID = "medicine_type_id";
+    final public static String WEB_MEDICINE_TYPE_LIST = "medicine_type_list";
+
+    final public static String WEB_CONSUMER_ID = "consumer_id";
+    final public static String WEB_CONSUMER_LIST = "consumer_list";
 
     final public static String WEB_SALES_INFO_ID = "sales_info_id";
 
@@ -49,7 +56,6 @@ public class RelationText {
 	final public static String WEB_SALES_INFO_PAYMENT = "sales_info_payment";
 	final public static String WEB_SALES_INFO_CONSUMER_ID = "sales_info_consumer_id";
 
-	final public static String WEB_CONSUMER_ID = "consumer_id";
 	final public static String WEB_CONSUMER_NAME = "consumer_name";
 	final public static String WEB_CONSUMER_CIT_ID = "consumer_cit_id";
 
