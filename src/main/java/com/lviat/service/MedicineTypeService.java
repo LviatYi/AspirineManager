@@ -48,7 +48,7 @@ public interface MedicineTypeService {
      * @param size      单页显示数量.
      * @return service status.
      */
-    MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page,int size);
+    MedicineTypeServiceStatus getMedicineType(List<MedicineType> medicineTypes, int page,int size);
 
     /**
      * 获取所有药品类别.
@@ -58,5 +58,5 @@ public interface MedicineTypeService {
      * @param page      分页页码.
      * @return service status.
      */
-    MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page);
+    MedicineTypeServiceStatus getMedicineType(List<MedicineType> medicineTypes, int page);
 }

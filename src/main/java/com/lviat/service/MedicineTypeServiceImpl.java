@@ -127,7 +127,7 @@ public class MedicineTypeServiceImpl implements MedicineTypeService {
     }
 
     @Override
-    public MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page,int size) {
+    public MedicineTypeServiceStatus getMedicineType(List<MedicineType> medicineTypes, int page,int size) {
         MedicineTypeServiceStatus status = MedicineTypeServiceStatus.SUCCESSFUL;
         List<MedicineType> result = new ArrayList<>();
 
@@ -153,7 +153,7 @@ public class MedicineTypeServiceImpl implements MedicineTypeService {
     }
 
     @Override
-    public MedicineTypeServiceStatus queryMedicineType(List<MedicineType> medicineTypes, int page) {
-        return queryMedicineType(medicineTypes, page, MAX_PAGE_SIZE);
+    public MedicineTypeServiceStatus getMedicineType(List<MedicineType> medicineTypes, int page) {
+        return getMedicineType(medicineTypes, page, MAX_PAGE_SIZE);
     }
 }
