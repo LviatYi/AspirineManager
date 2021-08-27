@@ -86,55 +86,6 @@
 			alert($("#productionDate").val());
 		})
 	</script>
-<!--		<div class="row"><form action="Drug_selectByPage.jsp">-->
-<!--			<table id="tab" style="margin-top: 30px;">-->
-<!--				<tr>-->
-<!--					<td align="right" style="width:40%;">药品编号:</td>-->
-<!--					<td align="left"><input type="text" /></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width: 40%;">药品名称:</td>-->
-<!--					<td align="left"><input type="text"/></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width: 40%;">药品单价:</td>-->
-<!--					<td align="left"><input type="text"/></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width: 40%;">库存数量:</td>-->
-<!--					<td align="left"><input type="text"/></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width:40%;">生产日期:</td>-->
-<!--					<td align="left"><input type="text" onClick="WdatePicker()"/></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width:40%; ">厂商:</td>-->
-<!--					<td align="left"><input type="text"/></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td align="right" style="width: 40%; ">所属类别:</td><td align="left"><select>-->
-<!--					<option>请选择相应的药品类别...</option>-->
-<!--					<option>抗菌消炎类</option>-->
-<!--					<option>清热解毒类</option>-->
-<!--					<option>止咳平喘类</option>-->
-<!--					<option>胃肠道类</option>-->
-<!--					<option>维生素类</option>-->
-<!--					<option>心脑血管类</option>-->
-<!--					<option>五官外用类</option>-->
-<!--					<option>抗糖尿病类</option>-->
-<!--				</select></td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-
-<!--					<td colspan="2"><input class=" btn btn-info" style="width: 60px;" type="submit"-->
-<!--										   value="提交"/></td>-->
-
-<!--				</tr>-->
-<!--			</table>-->
-<!--		</form></div>-->
-
-
 
 	</body>
 </html>
