@@ -7,6 +7,7 @@ import com.lviat.service.ConsumerServiceImpl;
 import com.lviat.service.SalesInfoService;
 import com.lviat.service.SalesInfoServiceImpl;
 import com.lviat.util.constant.text.MethodText;
+import com.lviat.util.constant.text.RelationText;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,8 +57,8 @@ public class SalesManagerServlet extends HttpServlet {
     }
 
     private void delSalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
-        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
-        salesInfoService.delSalesInfo(salesInfo.getId());
+        long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALESINFO_ID));
+        salesInfoService.delSalesInfo(salesInfoId);
     }
 
     private void modifySalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
