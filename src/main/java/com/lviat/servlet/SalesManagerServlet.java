@@ -1,7 +1,6 @@
 package com.lviat.servlet;
 
 import com.alibaba.fastjson.JSON;
-import com.lviat.model.Consumer;
 import com.lviat.model.SalesInfo;
 import com.lviat.service.ConsumerService;
 import com.lviat.service.ConsumerServiceImpl;
@@ -37,29 +36,32 @@ public class SalesManagerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Consumer newConsumer = JSON.parseObject(req.getParameter("consumer"), Consumer.class);
-        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
         switch (req.getParameter(MethodText.METHOD)) {
-            case MethodText.CONSUMER_ADD:
-                consumerService.addConsumer(newConsumer);
-                break;
-            case MethodText.CONSUMER_DEL:
-                consumerService.delConsumer(newConsumer.getId());
-                break;
-            case MethodText.CONSUMER_MODIFY:
-                consumerService.modifyConsumer(newConsumer);
-                break;
             case MethodText.SALES_INFO_ADD:
-                salesInfoService.addSalesInfo(salesInfo);
+                this.addSalesInfo(req,resp);
                 break;
             case MethodText.SALES_INFO_DEL:
-                salesInfoService.delSalesInfo(salesInfo.getId());
+                this.delSalesInfo(req, resp);
                 break;
             case MethodText.SALES_INFO_MODIFY:
-                salesInfoService.modifySalesInfo(salesInfo);
+                this.modifySalesInfo(req,resp);
                 break;
             default:
                 break;
         }
+    }
+    private void addSalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
+        salesInfoService.addSalesInfo(salesInfo);
+    }
+
+    private void delSalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
+        salesInfoService.delSalesInfo(salesInfo.getId());
+    }
+
+    private void modifySalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
+        salesInfoService.modifySalesInfo(salesInfo);
     }
 }
