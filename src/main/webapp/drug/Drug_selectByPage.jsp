@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
 import="com.lviat.util.constant.text.RelationText"
-import="com.lviat.util.constant.text.MethodText"%>
+import="com.lviat.util.constant.text.MethodText"
+import="com.lviat.service.MedicineServiceImpl"
+import="com.lviat.model.Medicine"
+import="java.util.ArrayList"
+import="java.util.List"
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,15 +21,17 @@ import="com.lviat.util.constant.text.MethodText"%>
 		<link rel="stylesheet" type="text/css" href="../css/query.css"/>
 	</head>
 	<body>
+	<%
+        List<Medicine> medicineList = new ArrayList<>();
+        (new MedicineServiceImpl()).getMedicine(medicineList,1);
+    %>
 		<div id="top" style="background-color: #C0EBEF;text-align: center;font-size: large">  医药管理--查看药品</div>
 		<div id="contexttop">
 		<table class="table table-bordered table-hover"  align="center" id="tab" border="1">
 			<tr>
 				<td colspan="10" height="50">
 
-
-
-<%--					Medicine药品查询--%>
+                <%--Medicine药品查询--%>
 					<form method="${MethodText.MEDICINE_SELECT}">
 						<input type="text" title="药品ID" placeholder="药品ID" name="${RelationText.WEB_MEDICINE_ID}"/>
 						<input type="submit" value="查询" class="btn btn-info" />
@@ -42,19 +49,29 @@ import="com.lviat.util.constant.text.MethodText"%>
 			<th style="text-align: center">所属类别</th>
 			<th style="text-align: center" colspan="2">操作</th>
 		</tr>
-			<c:forEach items="${list}" var="item">
-				<tr>
-					<td>${item.id}</td>
-					<td>${item.code}</td>
-					<td>${item.name}</td>
-					<td>${item.price}</td>
-					<td>${item.inventoryCount}</td>
-					<td>${item.productionDate}</td>
-					<td>${item.vendorName}</td>
-					<td><a href="Buy_toSale.jsp">立即购买</a> </td>
-				</tr>
-			</c:forEach>
 
+        <%
+            for (Medicine medicine : medicineList) {
+        %>
+        <tr>
+            <td><%=medicine.getId()%></td>
+            <td><%=medicine.getCode()%></td>
+            <td><%=medicine.getName()%></td>
+            <td><%=medicine.getPrice()%></td>
+            <td><%=medicine.getInventoryCount()%></td>
+            <td><%=medicine.getProductionDate()%></td>
+            <td><%=medicine.getVendorName()%></td>
+            <td><%=medicine.getTypeId()%></td>
+            <td>
+                <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_MODIFY%>,<%=RelationText.WEB_MEDICINE_ID%>=<%=medicine.getId()%>&<%=RelationText.WEB_MEDICINE_CODE%>=<%=medicine.getCode()%>&<%=RelationText.WEB_MEDICINE_NAME%>=<%=medicine.getName()%>,&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicine.getPrice()%>,&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicine.getPrice()%>,&<%=RelationText.WEB_MEDICINE_INVENTORY_COUNT%>=<%=medicine.getInventoryCount()%>,&<%=RelationText.WEB_MEDICINE_PRODUCTION_DATE%>=<%=medicine.getProductionDate()%>,&<%=RelationText.WEB_MEDICINE_VENDOR_NAME%>=<%=medicine.getVendorName()%>,&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicine.getTypeId()%>">编辑</a>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_DEL%>,<%=RelationText.WEB_MEDICINE_ID%>=<%=medicine.getId()%>"
+                   class="delete">删除</a></td>
+        </tr>
+        <%
+            }
+        %>
 
 		</table>
 		</div>
