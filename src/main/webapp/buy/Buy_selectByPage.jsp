@@ -44,7 +44,14 @@ import="com.lviat.util.constant.text.MethodText"%>
 		</tr>
 		<c:forEach items="${list}" var="item">
 			<tr>
-
+           <td>${item.id}</td>
+				<td>${item.code}</td>
+				<td>${item.name}</td>
+				<td>${item.price}</td>
+				<td>${item.inventoryCount}</td>
+				<td>${item.productionDate}</td>
+				<td>${item.vendorName}</td>
+				<td><a href="Buy_toSale.jsp">立即购买</a> </td>
 			</tr>
 		</c:forEach>
 

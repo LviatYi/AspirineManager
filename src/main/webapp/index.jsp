@@ -87,8 +87,3 @@ pageEncoding="UTF-8"
 		<button type="button" class="btn btn-info">EXIT</button></a></div>
 	</body>
 </html>
-
-
-
-
-

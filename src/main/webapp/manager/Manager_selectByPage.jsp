@@ -2,6 +2,7 @@
 		 pageEncoding="UTF-8"%> <%@ page
 		import="com.lviat.util.constant.text.RelationText"
 		import="com.lviat.util.constant.text.MethodText"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +37,17 @@
 				<th style="text-align: center">用户类型</th>
 				<th style="text-align: center" colspan=3>操作</th>
 			</tr>
+			<c:forEach items="${list}" var="item">
+				<td>${item.id}</td>
+				<td>${item.username}</td>
+				<td>${item.name}</td>
+				<td>${item.phoneNum}</td>
+				<c:if test="${item.role}==1"><td>管理员</td></c:if>
+				<c:if test="${item.role}==2"><td>购买者</td></c:if>
+				<td><a href="#">编辑</a></td>
+				<td><a href="Manager_toUpdatePassword.jsp">重置密码</a></td>
+				<td><a >删除</a></td>
+			</c:forEach>
 			<tr>
 				<td>1001</td>
 				<td>admin</td>
