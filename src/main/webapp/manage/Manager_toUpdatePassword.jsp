@@ -4,7 +4,7 @@ import="com.lviat.util.constant.text.RelationText"
 import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
-	<head>
+	<head >
 		<meta charset="utf-8">
 		<title>修改密码</title>
 		<link rel="icon" href="../img/m1.jpg">

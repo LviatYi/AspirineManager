@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
 import="com.lviat.util.constant.text.RelationText"
-import="com.lviat.util.constant.text.MethodText"%>
+import="com.lviat.util.constant.text.MethodText"
+import="com.lviat.service.MedicineServiceImpl"
+import="com.lviat.util.constant.text.RelationText"
+import="com.lviat.util.constant.text.MethodText"
+import="com.lviat.model.Medicine"
+import="java.util.ArrayList"
+import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +22,10 @@ import="com.lviat.util.constant.text.MethodText"%>
 		<link rel="stylesheet" type="text/css" href="../css/query.css"/>
 	</head>
 	<body>
+	<%
+		List<Medicine> MedicineList = new ArrayList<>();
+		(new MedicineServiceImpl()).getMedicine(MedicineList,1);
+	%>
 		<div id="top" style="background-color: #C0EBEF;text-align: center;font-size: large">医药管理--查看药品</div>
 		<div id="contexttop">
 		<table  class="table table-bordered table-hover" align="center" id="tab" border="1">
@@ -41,20 +51,52 @@ import="com.lviat.util.constant.text.MethodText"%>
 			<th name="${RelationText.WEB_MEDICINE_TYPE_ID}">所属类别</th>
 			<th colspan="1">操作</th>
 		</tr>
-		<c:forEach items="${list}" var="item">
+<%--		<c:forEach items="${list}" var="item">--%>
+<%--			<tr>--%>
+<%--           <td>${item.id}</td>--%>
+<%--				<td>${item.code}</td>--%>
+<%--				<td>${item.name}</td>--%>
+<%--				<td>${item.price}</td>--%>
+<%--				<td>${item.inventoryCount}</td>--%>
+<%--				<td>${item.productionDate}</td>--%>
+<%--				<td>${item.vendorName}</td>--%>
+<%--				<td><a href="Buy_toSale.jsp">立即购买</a> </td>--%>
+<%--			</tr>--%>
+<%--		</c:forEach>--%>
+
+			<%
+				for (Medicine medicine : MedicineList) {
+			%>
 			<tr>
-           <td>${item.id}</td>
-				<td>${item.code}</td>
-				<td>${item.name}</td>
-				<td>${item.price}</td>
-				<td>${item.inventoryCount}</td>
-				<td>${item.productionDate}</td>
-				<td>${item.vendorName}</td>
-				<td><a href="Buy_toSale.jsp">立即购买</a> </td>
+				<td>${medicine.getId()}</td>
+				<td>${medicine.getCode()}</td>
+				<td>${medicine.getName()}</td>
+				<td>${medicine.getPrice()}</td>
+				<td>${medicine.getInventoryCount()}</td>
+				<td>${medicine.getVendorName()}</td>
+				<td>${medicine.getTypeId()}</td>
+				<td>
+					<a href="${pageContext.request.contextPath}/${UrlText.SALES}.do?
+					method=<%=MethodText.MEDICINE_SELECT%>,
+					<%=RelationText.WEB_MEDICINE_ID%>=
+					<%=medicine.getId()%>
+					&<%=RelationText.WEB_MEDICINE_CODE%>=
+					<%=medicine.getCode()%>
+					&
+					<%=RelationText.WEB_MEDICINE_PRICE%>=
+					<%=medicine.getPrice()%>,
+					&<%=RelationText.WEB_MEDICINE_INVENTORY_COUNT%>
+					=<%=medicine.getInventoryCount()%>,
+					&<%=RelationText.WEB_MEDICINE_VENDOR_NAME%>
+					=<%=medicine.getVendorName()%>,
+					&<%=RelationText.WEB_MEDICINE_TYPE_ID%>
+					=<%=medicine.getTypeId()%>">购买</a>
+				</td>
+
 			</tr>
-		</c:forEach>
-
-
+			<%
+				}
+			%>
 		</table>
 
 		</div>
