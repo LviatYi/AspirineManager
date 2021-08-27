@@ -114,7 +114,7 @@ public class DataVisitServlet extends HttpServlet {
 
         int page = Integer.parseInt(req.getParameter("page"));
         List <MedicineType> medicinesTypes = new ArrayList<>();
-        medicineTypeService.queryMedicineType(medicinesTypes,page);
+        medicineTypeService.getMedicineType(medicinesTypes,page);
         req.setAttribute(RelationText.WEB_MEDICINE_TYPE_LIST,medicinesTypes);
     }
 
