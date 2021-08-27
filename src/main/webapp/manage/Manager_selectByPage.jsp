@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"
-         import="com.lviat.service.UserServiceImpl"
          import="com.lviat.util.constant.text.RelationText"
          import="com.lviat.util.constant.text.MethodText"
+         import="com.lviat.service.UserServiceImpl"
          import="com.lviat.model.User"
          import="java.util.ArrayList"
          import="java.util.List"
@@ -53,11 +53,11 @@
             for (User user : userList) {
         %>
         <tr>
-            <td>${user.getId()}</td>
-            <td>${user.getUsername()}</td>
-            <td>${user.getName()}</td>
-            <td>${user.getPhoneNum()}</td>
-            <td>${user.getRole()}</td>
+            <td><%=user.getId()%></td>
+            <td><%=user.getUsername()%></td>
+            <td><%=user.getName()%></td>
+            <td><%=user.getPhoneNum()%></td>
+            <td><%=user.getRole()%></td>
             <td>
                 <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.USER_MODIFY%>,<%=RelationText.WEB_USER_ID%>=<%=user.getId()%>&<%=RelationText.WEB_USER_ID%>=<%=user.getUsername()%>&<%=RelationText.WEB_USER_NAME%>=<%=user.getName()%>,&<%=RelationText.WEB_USER_PHONE_NUM%>=<%=user.getPhoneNum()%>">编辑</a>
             </td>
