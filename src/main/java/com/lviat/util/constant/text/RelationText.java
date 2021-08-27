@@ -29,6 +29,6 @@ public class RelationText {
     final public static String WEB_MEDICINE_TYPE = "medicine_type";
     final public static String WEB_MEDICINE_TYPE_ID = "medicine_type_id";
 
-    final public static String WEB_SALESINFO_ID = "salesInfo_id";
+    final public static String WEB_SALES_INFO_ID = "sales_info_id";
 
 }

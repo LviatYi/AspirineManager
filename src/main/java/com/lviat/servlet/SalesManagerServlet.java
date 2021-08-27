@@ -57,7 +57,7 @@ public class SalesManagerServlet extends HttpServlet {
     }
 
     private void delSalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
-        long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALESINFO_ID));
+        long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALES_INFO_ID));
         salesInfoService.delSalesInfo(salesInfoId);
     }
 
