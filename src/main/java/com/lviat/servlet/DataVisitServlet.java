@@ -7,17 +7,17 @@ import com.lviat.util.constant.text.MethodText;
 import com.lviat.util.constant.text.RelationText;
 
 
+import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.ServletException;
-
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 
 
 import java.io.IOException;
@@ -25,6 +25,7 @@ import java.io.IOException;
 /**
  * @author Titc
  */
+@WebServlet(name = "DataVisitServlet", urlPatterns = UrlText.DATA_GET + ".do")
 public class DataVisitServlet extends HttpServlet {
     private UserService userService;
     private MedicineService medicineService;
@@ -38,7 +39,6 @@ public class DataVisitServlet extends HttpServlet {
         this.medicineTypeService = new MedicineTypeServiceImpl();
         this.salesInfoService = new SalesInfoServiceImpl();
         this.consumerService = new ConsumerServiceImpl();
-
     }
 
     @Override
@@ -54,13 +54,13 @@ public class DataVisitServlet extends HttpServlet {
                 this.getUser(req, resp);
                 break;
             case MethodText.USER_SELECT_LIST:
-                this.getUserList(req,resp);
+                this.getUserList(req, resp);
                 break;
             case MethodText.MEDICINE_SELECT:
                 this.getMedicine(req, resp);
                 break;
             case MethodText.MEDICINE_SELECT_LIST:
-                this.getMedicineList(req,resp);
+                this.getMedicineList(req, resp);
                 break;
             case MethodText.MEDICINE_TYPE_SELECT_LIST:
                 this.getMedicineTypeList(req, resp);
@@ -69,16 +69,15 @@ public class DataVisitServlet extends HttpServlet {
                 this.getConsumer(req, resp);
                 break;
             case MethodText.CONSUMER_SELECT_LIST:
-                this.getConsumerList(req,resp);
+                this.getConsumerList(req, resp);
                 break;
             case MethodText.SALES_INFO_SELECT:
                 this.getSalesInfo(req, resp);
             case MethodText.SALES_INFO_SELECT_LIST:
-                this.getSalesInfoList(req,resp);
+                this.getSalesInfoList(req, resp);
                 break;
             default:
                 break;
-
         }
     }
 
@@ -99,47 +98,46 @@ public class DataVisitServlet extends HttpServlet {
     private void getMedicine(HttpServletRequest req, HttpServletResponse resp) {
         long medicineId = Long.parseLong(req.getParameter(RelationText.WEB_MEDICINE_ID));
         Medicine medicine = new Medicine();
-        medicineService.getMedicine(medicine,medicineId);
+        medicineService.getMedicine(medicine, medicineId);
     }
-    private void  getMedicineList(HttpServletRequest req,HttpServletResponse resp)
-    {
+
+    private void getMedicineList(HttpServletRequest req, HttpServletResponse resp) {
         int page = Integer.parseInt(req.getParameter("page"));
-        List <Medicine> medicines = new ArrayList<>();
-        medicineService.getMedicine(medicines,page);
-        req.setAttribute(RelationText.WEB_MEDICINE_LIST,medicines);
+        List<Medicine> medicines = new ArrayList<>();
+        medicineService.getMedicine(medicines, page);
+        req.setAttribute(RelationText.WEB_MEDICINE_LIST, medicines);
 
     }
+
     private void getMedicineTypeList(HttpServletRequest req, HttpServletResponse resp) {
-
-
         int page = Integer.parseInt(req.getParameter("page"));
-        List <MedicineType> medicinesTypes = new ArrayList<>();
-        medicineTypeService.getMedicineType(medicinesTypes,page);
-        req.setAttribute(RelationText.WEB_MEDICINE_TYPE_LIST,medicinesTypes);
+        List<MedicineType> medicinesTypes = new ArrayList<>();
+        medicineTypeService.getMedicineType(medicinesTypes, page);
+        req.setAttribute(RelationText.WEB_MEDICINE_TYPE_LIST, medicinesTypes);
     }
 
     private void getConsumer(HttpServletRequest req, HttpServletResponse resp) {
         long consumerId = Long.parseLong(req.getParameter(RelationText.WEB_CONSUMER_ID));
         Consumer consumer = new Consumer();
-        consumerService.getConsumer(consumer,consumerId);
+        consumerService.getConsumer(consumer, consumerId);
     }
-    private void getConsumerList(HttpServletRequest req,HttpServletResponse resp)
-    {
+
+    private void getConsumerList(HttpServletRequest req, HttpServletResponse resp) {
         int page = Integer.parseInt(req.getParameter("page"));
-        List <Consumer> consumers = new ArrayList<>();
-        consumerService.getConsumer(consumers,page);
+        List<Consumer> consumers = new ArrayList<>();
+        consumerService.getConsumer(consumers, page);
     }
 
     private void getSalesInfo(HttpServletRequest req, HttpServletResponse resp) {
-      long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALES_INFO_ID));
-      SalesInfo salesInfo = new SalesInfo();
-      salesInfoService.getSalesInfo(salesInfo,salesInfoId);
+        long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALES_INFO_ID));
+        SalesInfo salesInfo = new SalesInfo();
+        salesInfoService.getSalesInfo(salesInfo, salesInfoId);
     }
-    private void getSalesInfoList (HttpServletRequest req,HttpServletResponse resp)
-    {
+
+    private void getSalesInfoList(HttpServletRequest req, HttpServletResponse resp) {
         int page = Integer.parseInt(req.getParameter("page"));
-         List <SalesInfo> salesInfos = new ArrayList<>();
-         salesInfoService.getSalesInfo(salesInfos,page);
+        List<SalesInfo> salesInfos = new ArrayList<>();
+        salesInfoService.getSalesInfo(salesInfos, page);
     }
 }
 

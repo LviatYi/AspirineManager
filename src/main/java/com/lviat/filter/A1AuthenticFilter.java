@@ -68,7 +68,7 @@ public class A1AuthenticFilter implements Filter {
         String token = null;
 
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("token")) {
+            if ("token".equals(cookie.getName())) {
                 token = cookie.getValue();
             }
         }
