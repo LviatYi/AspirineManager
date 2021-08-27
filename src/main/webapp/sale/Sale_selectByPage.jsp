@@ -2,7 +2,6 @@
 		 pageEncoding="UTF-8"%> <%@ page
 		import="com.lviat.util.constant.text.RelationText"
 		import="com.lviat.util.constant.text.MethodText"%>
-<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
