@@ -2,6 +2,11 @@
 pageEncoding="UTF-8"%> <%@ page
 import="com.lviat.util.constant.text.RelationText"
 import="com.lviat.util.constant.text.MethodText"%>
+import="com.lviat.service.MedicineTypeServiceImpl"
+import="com.lviat.model.User"
+import="java.util.ArrayList"
+import="java.util.List"
+<%@ page import="com.lviat.model.MedicineType" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +21,10 @@ import="com.lviat.util.constant.text.MethodText"%>
 		<link rel="stylesheet" type="text/css" href="../css/query.css" />
 	</head>
 	<body style="background-color: #DAF3F5">
+	<%
+		List<MeidicineType> medicineList = new ArrayList<>();
+		(new MedicineTypeServiceImpl()).getMedicineType(medicineList,1);
+	%>
 		<div id="top" style="background-color: #C0EBEF;text-align: center;font-size: large">类别管理--查看类别</div>
 		<div id="contexttop">
 		    <table class="table table-bordered table-hover" id="tab" border="1">
@@ -50,14 +59,17 @@ import="com.lviat.util.constant.text.MethodText"%>
 						删除</button></td>
 				</tr>
 				</c:forEach>
+				<c:forEach items="${list}" var="item">
 				<tr>
-					<td>c1002</td>
-					<td>抗菌消炎类</td>
-					<td>2017-01-01</td>
-					<td>可以抗菌消炎</td>
+					<td>${item.typeId}</td>
+					<td>${item.typeName}</td>
+					<td>${item.createDate}</td>
+					<td>${item.describe}</td>
+					<td><a href=${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_MODIFY%>,<%=RelationText.WEB_MEDICINE_ID%>=<%=item.getTypeId()%>&<%=RelationText.WEB_USER_ID%>=<%=item.getTypeName()%>&<%=RelationText.WEB_USER_NAME%>=<%=user.getName()%>,&<%=RelationText.WEB_USER_PHONE_NUM%>=<%=user.getPhoneNum()%>">编辑</a>
 					<td><a href="Category_toAdd.jsp">编辑</a></td>
 					<td><a href="">删除</a></td>
 				</tr>
+				</c:forEach>
 				<tr>
 					<td>c1003</td>
 					<td>抗菌消炎类</td>
