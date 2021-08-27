@@ -115,19 +115,17 @@ import="com.lviat.util.constant.text.UrlText"%>
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="manager/Manager_selectByPage.jsp" target="show"
+                  <a href="manage/Manager_selectByPage.jsp" target="show"
                     >查看用户</a
                   >
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="manager/Manager_toAdd.jsp" target="show">添加用户</a>
+                  <a href="manage/Manager_toAdd.jsp" target="show">添加用户</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="manager/Manager_toUpdatePassword.jsp" target="show"
-                    >添加密码</a
-                  >
+                  <a href="manage/Manager_toUpdatePassword.jsp" target="show">添加密码</a>
                 </li>
               </ul>
             </li>
