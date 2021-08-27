@@ -6,6 +6,7 @@ import com.lviat.util.constant.text.RelationText;
 import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -60,16 +61,21 @@ public class A1AuthenticFilter implements Filter {
             return;
         }
 
-        long userId = (long) request.getSession().getAttribute(RelationText.WEB_USER_ID);
+        Long userId = (Long) request.getSession().getAttribute(RelationText.WEB_USER_ID);
 
-        if (!request.getRequestURI().contains(UrlText.LOGIN + ".jsp")) {
-            //从请求头中获取 token
-            String token = request.getHeader("token");
-            if (token == null || "".equals(token)) {
-                verify = false;
-            } else {
-                verify = TokenUtil.verifyToken(token, userId);
+        //从请求头中获取 token
+        Cookie[] cookies = request.getCookies();
+        String token = null;
+
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("token")) {
+                token = cookie.getValue();
             }
+        }
+        if (userId == null || token == null || "".equals(token)) {
+            verify = false;
+        } else {
+            verify = TokenUtil.verifyToken(token, userId);
         }
 
         if (!verify) {

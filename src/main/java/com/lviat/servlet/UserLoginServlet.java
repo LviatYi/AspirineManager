@@ -9,13 +9,11 @@ import com.lviat.util.constant.text.RelationText;
 import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.net.HttpCookie;
 
 /**
  * 用户登录后台.
@@ -60,7 +58,7 @@ public class UserLoginServlet extends HttpServlet {
             }
 
             if (status == UserServiceStatus.SUCCESSFUL) {
-                resp.setHeader("token", TokenUtil.createToken(userId, loginUser.getRole()));
+                resp.addCookie(new Cookie("token", TokenUtil.createToken(userId, loginUser.getRole())));
 
                 HttpSession httpSession = req.getSession();
 
