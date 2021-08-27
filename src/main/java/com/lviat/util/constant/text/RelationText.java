@@ -56,7 +56,6 @@ public class RelationText {
 	final public static String WEB_SALES_INFO_PAYMENT = "sales_info_payment";
 	final public static String WEB_SALES_INFO_CONSUMER_ID = "sales_info_consumer_id";
 
-	final public static String WEB_CONSUMER_ID = "consumer_id";
 	final public static String WEB_CONSUMER_NAME = "consumer_name";
 	final public static String WEB_CONSUMER_CIT_ID = "consumer_cit_id";
 
