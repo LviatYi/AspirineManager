@@ -7,6 +7,7 @@ import com.lviat.service.ConsumerServiceImpl;
 import com.lviat.service.SalesInfoService;
 import com.lviat.service.SalesInfoServiceImpl;
 import com.lviat.util.constant.text.MethodText;
+import com.lviat.util.constant.text.RelationText;
 import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
