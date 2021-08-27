@@ -4,7 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.lviat.model.*;
 import com.lviat.service.*;
 import com.lviat.util.constant.text.MethodText;
+import com.lviat.util.constant.text.RelationText;
+import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,10 +19,11 @@ import java.io.IOException;
  * 管理员权限.
  *
  * @author LviatYi
- * @version 0.1
+ * @version 1.0
  * @className DateManagerServlet
  * @date 2021/8/26
  */
+@WebServlet(name = "SalesManagerServlet", urlPatterns = UrlText.DATA_MANAGER + ".do")
 public class DataManagerServlet extends HttpServlet {
     private UserService userService;
     private MedicineService medicineService;
@@ -73,56 +77,49 @@ public class DataManagerServlet extends HttpServlet {
     }
 
     private void addUser(HttpServletRequest req, HttpServletResponse resp) {
-        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
+        User newUser = JSON.parseObject(req.getParameter(RelationText.WEB_USER), User.class);
         userService.addUser(newUser);
     }
 
     private void delUser(HttpServletRequest req, HttpServletResponse resp) {
-        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
-        userService.delUser(newUser.getId());
-
+        long userId = Long.parseLong(req.getParameter(RelationText.WEB_USER_ID));
+        userService.delUser(userId);
     }
 
     private void modifyUser(HttpServletRequest req, HttpServletResponse resp) {
-        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
-        userService.modifyUser(newUser);
-
+        User user = JSON.parseObject(req.getParameter(RelationText.WEB_USER), User.class);
+        userService.modifyUser(user);
     }
 
     private void addMedicine(HttpServletRequest req, HttpServletResponse resp) {
-        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
-
+        Medicine newMedicine = JSON.parseObject(req.getParameter(RelationText.WEB_MEDICINE), Medicine.class);
         medicineService.addMedicine(newMedicine);
     }
 
     private void delMedicine(HttpServletRequest req, HttpServletResponse resp) {
-        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
+        long medicineId = Long.parseLong(req.getParameter(RelationText.WEB_MEDICINE_ID));
 
-        medicineService.delMedicine(newMedicine.getId());
+        medicineService.delMedicine(medicineId);
     }
 
     private void modifyMedicine(HttpServletRequest req, HttpServletResponse resp) {
-        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
-
-        medicineService.modifyMedicine(newMedicine);
+        Medicine medicine = JSON.parseObject(req.getParameter(RelationText.WEB_MEDICINE), Medicine.class);
+        medicineService.modifyMedicine(medicine);
     }
 
     private void addMedicineType(HttpServletRequest req, HttpServletResponse resp) {
-        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
-
+        MedicineType newMedicineType = JSON.parseObject(req.getParameter(RelationText.WEB_MEDICINE_TYPE), MedicineType.class);
         medicineTypeService.addMedicineType(newMedicineType);
     }
 
     private void delMedicineType(HttpServletRequest req, HttpServletResponse resp) {
-
-        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
-        medicineTypeService.delMedicineType(newMedicineType.getTypeId());
+        long newMedicineTypeId = Long.parseLong(req.getParameter(RelationText.WEB_MEDICINE_TYPE_ID));
+        medicineTypeService.delMedicineType(newMedicineTypeId);
     }
 
     private void modifyMedicineType(HttpServletRequest req, HttpServletResponse resp) {
-        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
-        medicineTypeService.modifyMedicineType(newMedicineType);
-
+        MedicineType medicineType = JSON.parseObject(req.getParameter(RelationText.WEB_MEDICINE_TYPE), MedicineType.class);
+        medicineTypeService.modifyMedicineType(medicineType);
     }
 
 }
