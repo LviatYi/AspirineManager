@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%> <%@ page
+		 import ="com.lviat.service.UserService"
+		 import ="com.lviat.service.UserServiceImpl"
+		 import ="com.lviat.service.UserServiceStatus"
 		import="com.lviat.util.constant.text.RelationText"
-		import="com.lviat.util.constant.text.MethodText"%>
+		import="com.lviat.util.constant.text.MethodText"
+		import="com.lviat.model.User"
+        import ="java.util.ArrayList"
+        import ="java.util.List"
+		%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +23,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/query.css" />
 </head>
 <body>
+<%
+    List<User> userList=new ArrayList<>();
+    (new UserServiceImpl()).getUser(userList,page);
+%>
 	<div id="top"style="background-color: #C0EBEF;text-align: center;font-size: large"> 系统管理 -- 查看用户</div>
 	<div id="contexttop">
 		<table id="tab" border="1" class="table table-bordered table-hover">
@@ -29,18 +40,18 @@
 				</td>
 			</tr>
 			<tr bgcolor="#E0FBC4">
-				<th style="text-align: center">用户ID</th>
+				<th style="text-align: center">用户 ID</th>
 				<th style="text-align: center">用户名</th>
-				<th style="text-align: center">用户昵称</th>
-				<th style="text-align: center">联系方式</th>
-				<th style="text-align: center">用户类型</th>
+				<th style="text-align: center">用户全名</th>
+				<th style="text-align: center">电话号码</th>
+				<th style="text-align: center">角色</th>
 				<th style="text-align: center" colspan=3>操作</th>
 			</tr>
 			<c:forEach items="${list}" var="item">
-				<td>${item.id}</td>
-				<td>${item.username}</td>
-				<td>${item.name}</td>
-				<td>${item.phoneNum}</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 				<c:if test="${item.role}==1"><td>管理员</td></c:if>
 				<c:if test="${item.role}==2"><td>购买者</td></c:if>
 				<td><a href="Manager_toUpdatePassword.jsp">重置密码</a></td>
@@ -51,10 +62,26 @@
 				<td>Admin</td>
 				<td>12345678911</td>
 				<td>管理员</td>
-				<td><a href="">编辑</a></td>
-				<td><a href="">重置密码</a></td>
-				<td><a href="">删除</a></td>
+
 			</tr>
+			        <%
+                        for(User user:userList){
+                    %>
+                    <tr>
+                        <td>${user.getId}</td>
+                        <td>${user.getUsername}</td>
+                        <td>${user.getName}</td>
+                        <td>${user.getPhoneNum}</td>
+                        <td>${user.getRole}</td>
+                        <td><a href="${pageContext.request.contextPath}/toadd.category?id=<%=c.getId()%>&cname=<%=c.getCname()%>&description=<%=c.getDescription()%>">编辑</a></td>
+                        <td><a href="${pageContext.request.contextPath}/delete.category?id=<%=c.getId()%>" class="delete">删除</a></td>
+                        <td><a href="">编辑</a></td>
+                                                                                                                                     				<td><a href="">重置密码</a></td>
+                                                                                                                                     				<td><a href="">删除</a></td>
+                    </tr>
+                    <%
+                        }
+                    %>
 
 			
 		</table>
