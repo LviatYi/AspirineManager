@@ -42,7 +42,11 @@
 				<td>${item.username}</td>
 				<td>${item.name}</td>
 				<td>${item.phoneNum}</td>
-				<c:if test="${item.role}==0"><td></td></c:if>
+				<c:if test="${item.role}==1"><td>管理员</td></c:if>
+				<c:if test="${item.role}==2"><td>购买者</td></c:if>
+				<td><a href="#">编辑</a></td>
+				<td><a href="Manager_toUpdatePassword.jsp">重置密码</a></td>
+				<td><a >删除</a></td>
 			</c:forEach>
 			<tr>
 				<td>1001</td>

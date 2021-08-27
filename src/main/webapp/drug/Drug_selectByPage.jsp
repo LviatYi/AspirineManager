@@ -2,7 +2,7 @@
 pageEncoding="UTF-8"%> <%@ page
 import="com.lviat.util.constant.text.RelationText"
 import="com.lviat.util.constant.text.MethodText"%>
-
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,32 +43,19 @@ import="com.lviat.util.constant.text.MethodText"%>
 			<th style="text-align: center">所属类别</th>
 			<th style="text-align: center" colspan="2">操作</th>
 		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><button id="update" type="button" class="btn btn-info">
-				编辑</button></td>
-			<td><button id="delete" type="button" class="btn btn-danger">
-				删除</button></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.jsp">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
+			<c:forEach items="${list}" var="item">
+				<tr>
+					<td>${item.id}</td>
+					<td>${item.code}</td>
+					<td>${item.name}</td>
+					<td>${item.price}</td>
+					<td>${item.inventoryCount}</td>
+					<td>${item.productionDate}</td>
+					<td>${item.vendorName}</td>
+					<td><a href="Buy_toSale.jsp">立即购买</a> </td>
+				</tr>
+			</c:forEach>
+
 
 		</table>
 		</div>

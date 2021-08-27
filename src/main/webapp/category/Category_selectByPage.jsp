@@ -2,6 +2,7 @@
 pageEncoding="UTF-8"%> <%@ page
 import="com.lviat.util.constant.text.RelationText"
 import="com.lviat.util.constant.text.MethodText"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,16 +39,18 @@ import="com.lviat.util.constant.text.MethodText"%>
 					<th style="text-align: center">描述</th>
 					<th style="text-align: center" colspan="2">操作</th>
 				</tr>
+				<c:forEach items="${list}" var="item">
 				<tr>
-					<td>c1001</td>
-					<td>抗菌消炎类</td>
-					<td>2017-01-01</td>
-					<td>可以抗菌消炎</td>
+					<td>${item.typeId}</td>
+					<td>${item.typeName}</td>
+					<td>${item.createDate}</td>
+					<td>${item.describe}</td>
 					<td><button id="update" type="button" class="btn btn-info">
 						编辑</button></td>
 					<td><button id="delete" type="button" class="btn btn-danger">
 						删除</button></td>
 				</tr>
+				</c:forEach>
 				<tr>
 					<td>c1002</td>
 					<td>抗菌消炎类</td>
