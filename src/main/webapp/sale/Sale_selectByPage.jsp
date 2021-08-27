@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%> <%@ page
+		import="com.lviat.util.constant.text.RelationText"
+		import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +21,9 @@
 		<table class="table table-bordered table-hover" id="tab" border="1">
 			<tr>
 				<td colspan="6" height="50px">
-					<form>
-						<input type="text" title="销售记录编号,药品编号,购买人ID" placeholder="销售记录编号ID,药品编号,购买人" />
+<%--					SaleInfo 查询--%>
+					<form method="${MethodText.SALES_INFO_SELECT}">
+						<input type="text" title="销售记录编号" placeholder="销售记录编号ID" name="${RelationText.WEB_SALES_INFO_ID}" />
 						<input type="submit" value="查询" class="btn btn-info" />
 					</form>
 				</td>
@@ -39,62 +44,7 @@
 				<td>700</td>
 				<td>1002</td>
 			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
-			<tr>
-				<td>s1001</td>
-				<td>2017-01-01</td>
-				<td>H10950030</td>
-				<td>35</td>
-				<td>700</td>
-				<td>1002</td>
-			</tr>
+
 		</table>
 	</div>
 	<div class="col-md-6" id="page_context">

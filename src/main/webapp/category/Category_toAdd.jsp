@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ page
+import="com.lviat.util.constant.text.RelationText"
+import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,21 +18,22 @@
 	<body style="background-color: #DAF3F5">
 		<div class="container">
 			<div class="row">
-				<div id="top"style="background-color: #C0EBEF;text-align: center;font-size: large;">类别管理--编辑类别</div>
+				<div id="top"style="background-color: #C0EBEF;text-align: center;font-size: large;">类别管理--添加类别</div>
 			</div>
 			<div class="row"style="height: 100px"></div>
 			<div class="row">
-				<form class="form-horizontal" method="">
+<%--				MedicineType添加--%>
+				<form class="form-horizontal" method="${MethodText.MEDICINE_TYPE_ADD}">
 					<div class="form-group">
 						<label for="typename" class="col-sm-3 control-label">类别名称</label>
 						<div class="col-sm-7">
-							<input type="text" class="form-control" id="typename" name="${RelationText.}" >
+							<input type="text" class="form-control" id="typename" name="${RelationText.WEB_MEDICINE_TYPE_TYPE_NAME}" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="describe" class="col-sm-3 control-label">药品名称</label>
 						<div class="col-sm-7">
-							<textarea type="text" class="form-control" id="describe" ></textarea>
+							<textarea type="text" class="form-control" id="describe"  name="${RelationText.WEB_MEDICINE_TYPE_DESCRIBE}" ></textarea>
 						</div>
 					</div>
 

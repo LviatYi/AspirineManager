@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ page
+import="com.lviat.util.constant.text.RelationText"
+import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,8 +21,9 @@
 		    <table class="table table-bordered table-hover" id="tab" border="1">
 				<thead><tr>
 					<td colspan="6" height="50">
-						<form>
-							<input id="search_Category" type="text" title="类别ID、类别名称、描述" /> <input
+<%--						MEdicineType类别查询--%>
+						<form method="${MethodText.MEDICINE_TYPE_SELECT}">
+							<input id="search_Category" type="text" title="类别ID" placeholder="输入类别ID" name="${RelationText.WEB_MEDICINE_TYPE_TYPE_ID}" /> <input
 							  class="btn btn-info" type="submit" value="查询"/>
 						</form>
 					</td>
@@ -27,7 +32,7 @@
 				</thead>
 				<tbody>
 				<tr bgcolor="yellow" >
-					<th style="text-align: center">类别ID</th>
+					<th style="text-align: center" >类别ID</th>
 					<th style="text-align: center">类别名称</th>
 					<th style="text-align: center">创建时间</th>
 					<th style="text-align: center">描述</th>
@@ -48,7 +53,7 @@
 					<td>抗菌消炎类</td>
 					<td>2017-01-01</td>
 					<td>可以抗菌消炎</td>
-					<td><a href="Category_toAdd.html">编辑</a></td>
+					<td><a href="Category_toAdd.jsp">编辑</a></td>
 					<td><a href="">删除</a></td>
 				</tr>
 				<tr>
@@ -56,7 +61,7 @@
 					<td>抗菌消炎类</td>
 					<td>2017-01-01</td>
 					<td>可以抗菌消炎</td>
-					<td><a href="Category_toAdd.html">编辑</a></td>
+					<td><a href="Category_toAdd.jsp">编辑</a></td>
 					<td><a href="">删除</a></td>
 				</tr>
 				</tbody>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
-import="com.lviat.util.constant.text.RelationText"%>
+ import="com.lviat.util.constant.text.RelationText"%>
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -42,9 +42,9 @@ import="com.lviat.util.constant.text.RelationText"%>
 	<form class="form-signin" action="menu.html">
 		<h2 class="form-signin-heading" style="text-align: center">登陆</h2>
 		<label for="inputEmail" class="sr-only"></label>用户名：
-		<input type="text" id="inputEmail" class="form-control" placeholder="name" required autofocus>
+		<input type="text" id="inputEmail" class="form-control" placeholder="name"  name="${RelationText.WEB_USER_ID}" required autofocus>
 		<label for="inputPassword" class="sr-only"></label>密码:
-		<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		<input type="password" id="inputPassword" class="form-control" placeholder="Password"name="${RelationText.WEB_USER_PASSWORD}" required>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Log</button>
 	</form>

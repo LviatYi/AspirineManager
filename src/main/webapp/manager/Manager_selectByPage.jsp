@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%> <%@ page
+		import="com.lviat.util.constant.text.RelationText"
+		import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +21,9 @@
 		<table id="tab" border="1" class="table table-bordered table-hover">
 			<tr>
 				<td colspan="8" height="50px">
-					<form>
-						<input type="text" title="用户ID,用户名,用户昵称" placeholder="用户ID,用户名,用户昵称" />
+<%--					用户ID查询--%>
+					<form method="${MethodText.USER_SELECT}">
+						<input type="text" title="用户ID" placeholder="用户ID" name="${RelationText.WEB_USER_ID}" />
 						<input type="submit" value="查询" class="btn-info btn" />
 					</form>
 				</td>
@@ -41,16 +46,7 @@
 				<td><a href="">重置密码</a></td>
 				<td><a href="">删除</a></td>
 			</tr>
-			<tr>
-				<td>1002</td>
-				<td>use</td>
-				<td>ABC</td>
-				<td>12345678910</td>
-				<td>普通用户</td>
-				<td><a href="">编辑</a></td>
-				<td><a href="">重置密码</a></td>
-				<td><a href="">删除</a></td>
-			</tr>
+
 			
 		</table>
 	</div>

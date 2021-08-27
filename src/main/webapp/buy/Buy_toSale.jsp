@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%> <%@ page
+		import="com.lviat.util.constant.text.RelationText"
+		import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,6 +16,81 @@
 	</head>
 	<link rel="stylesheet" type="text/css" href="../css/query.css" />
 	<body>
+	<div class="container">
+		<div class="row" style="background-color: #C0EBEF;text-align: center;font-size: large">添加药品</div>
+
+		<div class="row">
+
+			<div class="row">
+				<div class="row">
+
+
+<%--					SaleInfo销售记录添加--%>
+					<form class="form-horizontal" method="${MethodText.SALES_INFO_ADD}">
+						<div class="form-group">
+							<label for="code" class="col-sm-3 control-label" >药品编码</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="code" name="${RelationText.WEB_MEDICINE_CODE}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="name" class="col-sm-3 control-label">药品名称</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="name"name="${RelationText.WEB_MEDICINE_NAME}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="price" class="col-sm-3 control-label">药品单价</label>
+							<div class="col-sm-7">
+								<input type="number" class="form-control" id="price"name="${RelationText.WEB_MEDICINE_PRICE}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inventoryCount" class="col-sm-3 control-label">库存数量</label>
+							<div class="col-sm-7">
+								<input type="number" class="form-control" id="inventoryCount" name="${RelationText.WEB_MEDICINE_INVENTORY_COUNT}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="productionDate" class="col-sm-3 control-label">生产日期</label>
+							<div class="col-sm-7">
+								<input  type="Date" class="form-control" id="productionDate" name="${RelationText.WEB_MEDICINE_PRODUCTION_DATE}" >
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="vendorName" class="col-sm-3 control-label">厂商名称</label>
+							<div class="col-sm-7">
+								<input  type="text" class="form-control" id="vendorName" list="vendorNamelist" name="${RelationText.WEB_MEDICINE_VENDOR_NAME}" >
+								<datalist id="vendorNamelist">
+									<option>抗菌消炎类</option>
+									<option>清热解毒类</option>
+									<option>止咳平喘类</option>
+									<option>胃肠道类</option>
+									<option>维生素类</option>
+									<option>心脑血管类</option>
+									<option>五官外用类</option>
+									<option>抗糖尿病类</option>
+								</datalist>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="productionDate" class="col-sm-3 control-label">购买数量</label>
+							<div class="col-sm-7">
+								<input  type="number" class="form-control" id="salesCount" name="${RelationText.WEB_SALES_INFO_SALES_COUNT}" >
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+			<div class="col-md-6"></div>
+			<div class="col-md-6"><input class=" btn btn-info" id="Add_Drug"  type="submit" value="立即购买"/></div>
+
+		</div>
+	</div>
+	</body>
+</html>
 <!--		<div id="top">当前位置：购买药品&#45;&#45;选购药品</div>-->
 <!--		<form action="Buy_selectByPage.jsp">-->
 <!--			<table id="tab">-->
@@ -63,71 +142,3 @@
 <!--				</tr>-->
 <!--			</table>-->
 <!--		</form>-->
-		<div class="container">
-			<div class="row" style="background-color: #C0EBEF;text-align: center;font-size: large">添加药品</div>
-
-		<div class="row">
-
-			<div class="row">
-				<div class="row">
-					<form class="form-horizontal">
-						<div class="form-group">
-							<label for="code" class="col-sm-3 control-label">药品编号</label>
-							<div class="col-sm-7">
-								<input type="text" class="form-control" id="code" >
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="name" class="col-sm-3 control-label">药品名称</label>
-							<div class="col-sm-7">
-								<input type="text" class="form-control" id="name" >
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="price" class="col-sm-3 control-label">药品单价</label>
-							<div class="col-sm-7">
-								<input type="number" class="form-control" id="price" >
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inventoryCount" class="col-sm-3 control-label">库存数量</label>
-							<div class="col-sm-7">
-								<input type="number" class="form-control" id="inventoryCount" >
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="productionDate" class="col-sm-3 control-label">生产日期</label>
-							<div class="col-sm-7">
-								<input  type="Date" class="form-control" id="productionDate"  >
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="vendorName" class="col-sm-3 control-label">生产日期</label>
-							<div class="col-sm-7">
-								<input  type="text" class="form-control" id="vendorName" list="vendorNamelist" >
-								<datalist id="vendorNamelist">
-									<option>抗菌消炎类</option>
-									<option>清热解毒类</option>
-									<option>止咳平喘类</option>
-									<option>胃肠道类</option>
-									<option>维生素类</option>
-									<option>心脑血管类</option>
-									<option>五官外用类</option>
-									<option>抗糖尿病类</option>
-								</datalist>
-							</div>
-						</div>
-					</form>
-
-				</div>
-			</div>
-			<div class="col-md-6"></div>
-			<div class="col-md-6"><input class=" btn btn-info" id="Add_Drug"  type="submit" value="立即购买"/></div>
-
-		</div>
-		</div>
-
-
-		</body>
-		</html>

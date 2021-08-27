@@ -13,14 +13,14 @@ import="com.lviat.util.constant.text.RelationText"%>
     />
     <script
       type="text/javascript"
-      src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"
+      src="${pageContext.request.contextPath}/js/jquery.js"
     ></script>
     <script
       type="text/javascript"
-      src="${pageContext.request.contextPath}/js/index.js"
+      src="${pageContext.request.contextPath}/js/menu.js"
     ></script>
   </head>
-  <body>
+  <body background="./img/12.jpg">
     <div id="total">
       <form action="${pageContext.request.contextPath}/login.do" method="post">
         <table id="tab">
@@ -51,11 +51,6 @@ import="com.lviat.util.constant.text.RelationText"%>
           <tr>
             <td><input type="submit" id="submit" value="登陆" /></td>
             <td><input type="reset" value="重置" /></td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <span style="color: red">${requestScope.message}</span>
-            </td>
           </tr>
         </table>
       </form>

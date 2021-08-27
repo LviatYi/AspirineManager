@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ page
+import="com.lviat.util.constant.text.RelationText"
+import="com.lviat.util.constant.text.MethodText"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,8 +22,12 @@
 		<table class="table table-bordered table-hover"  align="center" id="tab" border="1">
 			<tr>
 				<td colspan="10" height="50">
-					<form>
-						<input type="text" title="药品ID、药品编号、药品名称" placeholder="药品ID、药品编号、药品名称"/>
+
+
+
+<%--					Medicine药品查询--%>
+					<form method="${MethodText.MEDICINE_SELECT}">
+						<input type="text" title="药品ID" placeholder="药品ID" name="${RelationText.WEB_MEDICINE_ID}"/>
 						<input type="submit" value="查询" class="btn btn-info" />
 					</form>
 			</td>
@@ -57,81 +66,10 @@
 			<td>2017-01-01</td>
 			<td>上海制药厂</td>
 			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.html">编辑</a></td>
+			<td><a href=" ../Category_toAdd.jsp">编辑</a></td>
 			<td><a href="#">删除</a></td>
 		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="../Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href=" ../Category/Category_toAdd.html">编辑</a></td>
-			<td><a href="#">删除</a></td>
-		</tr>
+
 		</table>
 		</div>
 		<div class="col-md-6" id="page_context">
@@ -142,7 +80,7 @@
 		</div>
 	<script type="text/javascript">
 		$("#update").click(function () {
-			window.location.href="../Category/Category_toAdd.html"
+			window.location.href="../Category/Category_toAdd.jsp"
 		})
 	</script>
 	</body>

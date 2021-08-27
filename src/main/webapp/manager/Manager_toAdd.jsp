@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%> <%@ page
+		import="com.lviat.util.constant.text.RelationText"
+		import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,40 +18,43 @@
 	<body>
 		
 		<div id="top"style="background-color: #C0EBEF;text-align: center;font-size: large">系统管理--添加用户</div>
-		<form action="Manager_selectByPage.html">
+
+
+<%--		User添加--%>
+		<form action="Manager_selectByPage.jsp" method="${MethodText.USER_ADD}">
 			<table id="tab"class="table table-bordered table-hover" style="margin-top: 30px;">
 				<tr>
 					<td align="right" style="width:40%;">用户名:</td>
-					<td align="left"><input type="text" /></td>
+					<td align="left"><input type="text" name="${RelationText.WEB_USER_USERNAME}" /></td>
 				</tr>
 				<tr>
 					<td align="right" style="width: 40%;">密码:</td>
-					<td align="left"><input type="text"/></td>
+					<td align="left"><input type="text"name="${RelationText.WEB_USER_PASSWORD}"/></td>
 				</tr>
 				<tr>
 					<td align="right" style="width: 40%;">重复输入密码:</td>
-					<td align="left"><input type="text"/></td>
+					<td align="left"><input type="text" name="${RelationText.WEB_USER_PASSWORD}"/></td>
 				</tr>
 				<tr>
 					<td align="right" style="width: 40%;">用户昵称:</td>
-					<td align="left"><input type="text"/></td>
+					<td align="left"><input type="text" name="${RelationText.WEB_USER_NAME}"/></td>
 				</tr>
 				<tr>
 					<td align="right" style="width:40%; ">联系方式:</td>
-					<td align="left"><input type="text"/></td>
+					<td align="left"><input type="text" name="${RelationText.WEB_USER_PHONE_NUM}"/></td>
 				</tr>
 				<tr>
 					<td align="right" style="width: 40%;">用户类型：</td>
 					<td align="left">
 						&nbsp;&nbsp;&nbsp;&nbsp;普通用户：
-						<input type="radio" checked="checked" name="managertype"/>
+						<input type="radio" checked="checked" name="${WEB_USER_ROLE}"/>
 						&nbsp;&nbsp;&nbsp;&nbsp;管理员：
-						<input type="radio"  name="managertype"/>
+						<input type="radio" name="${WEB_USER_ROLE}"/>
 					</td>
 				</tr>
 	            <tr>
 					
-					<td colspan="2" ><a href="Manager_selectByPage.html" class="btn btn-primary btn-sm active" role="button">提交</a></td>
+					<td colspan="2" ><a href="Manager_selectByPage.jsp" class="btn btn-primary btn-sm active" role="button">提交</a></td>
 
 				</tr>
 			</table>

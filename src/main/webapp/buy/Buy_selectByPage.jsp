@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
-import="com.lviat.util.constant.text.RelationText"%>
+import="com.lviat.util.constant.text.RelationText"
+import="com.lviat.util.constant.text.MethodText"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,121 +22,37 @@ import="com.lviat.util.constant.text.RelationText"%>
 		<table  class="table table-bordered table-hover" align="center" id="tab" border="1">
 			<tr>
 				<td colspan="10" height="50">
-					<form>
-						<input type="text" title="药品ID、药品编号、药品名称" placeholder="药品ID、药品编号、药品名称"/>
-						<input type="submit"  class=" btn btn-info" value="查询" />
+
+
+<%--					根据药品id查询--%>
+					<form method="${MethodText.MEDICINE_SELECT}">
+						<input type="text" title="药品ID" placeholder="药品ID" name="${RelationText.WEB_MEDICINE_ID}"/>
+						<input type="submit"  class=" btn btn-info" value="查询"/>
 					</form>
 			</td>
 		</tr>
 		<tr bgcolor="#EOFBC4">
-			<th>药品ID</th>
-			<th>药品编号</th>
-			<th>药品名称</th>
-			<th>药品单价</th>
-			<th>库存数量</th>
-			<th>生产日期</th>
-			<th>厂商</th>
-			<th>所属类别</th>
+			<th name="${RelationText.WEB_MEDICINE_ID}">药品ID</th>
+			<th name="${RelationText.WEB_MEDICINE_CODE}">药品编号</th>
+			<th name="${RelationText.WEB_MEDICINE_NAME}">药品名称</th>
+			<th name="${RelationText.WEB_MEDICINE_PRICE}">药品单价</th>
+			<th name="${RelationText.WEB_MEDICINE_INVENTORY_COUNT}">库存数量</th>
+			<th name="${RelationText.WEB_MEDICINE_PRODUCTION_DATE}">生产日期</th>
+			<th name="${RelationText.WEB_MEDICINE_VENDOR_NAME}">厂商</th>
+			<th name="${RelationText.WEB_MEDICINE_TYPE_ID}">所属类别</th>
 			<th colspan="1">操作</th>
 		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-		
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
-		<tr>
-			<td>D1001</td>
-			<td>H10950030</td>
-			<td>板蓝根冲剂</td>
-			<td>20</td>
-			<td>10000</td>
-			<td>2017-01-01</td>
-			<td>上海制药厂</td>
-			<td>清热解毒类</td>
-			<td><a href="Buy_toSale.html">立即购买</a></td>
-			
-		</tr>
+		<c:forEach items="${list}" var="item">
+			<tr>
+				
+			</tr>
+		</c:forEach>
+
+
 		</table>
+
 		</div>
+
 		<div class="col-md-6" id="page_context">
 		</div>
 		<!--分页条信息 -->

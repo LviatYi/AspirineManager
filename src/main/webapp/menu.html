@@ -19,6 +19,7 @@
 	</head>
 	<body background="img/1.jpg">
 	<nav class="navbar navbar-default" role="navigation" style="background: lavenderblush">
+<!--		导航图-->
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#" style="font-size: 25px;background: #74d2d9">医药管理系统</a>
@@ -32,9 +33,9 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="Category/Category_selectByPage.html" target="show">查看类别</a></li>
+							<li><a href="Category/Category_selectByPage.jsp" target="show">查看类别</a></li>
 							<li class="divider"></li>
-							<li><a href="Category/Category_toAdd.html" target="show">添加类别</a></li>
+							<li><a href="Category/Category_toAdd.jsp" target="show">添加类别</a></li>
 
 						</ul>
 					</li>
@@ -44,135 +45,46 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="Drug/Drug_selectByPage.html" target="show">查看药品</a></li>
+							<li><a href="Drug/Drug_selectByPage.jsp" target="show">查看药品</a></li>
 							<li class="divider"></li>
-							<li><a href="Drug/Drug_toAdd.html" target="show">添加药品</a></li>
+							<li><a href="Drug/Drug_toAdd.jsp" target="show">添加药品</a></li>
 							<li class="divider"></li>
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="Buy/Buy_selectByPage.html" class="dropdown-toggle" data-toggle="dropdown">
+						<a href="Buy/Buy_selectByPage.jsp" class="dropdown-toggle" data-toggle="dropdown">
 							购买药品
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
 
-							<li><a href="Buy/Buy_selectByPage.html" target="show">查看药品</a></li>
-
-
-
+							<li><a href="Buy/Buy_selectByPage.jsp" target="show">查看药品</a></li>
 						</ul>
 					</li>
-					<li><a href="Sale/Sale_selectByPage.html" target="show">销售管理</a></li>
+					<li><a href="Sale/Sale_selectByPage.jsp" target="show">销售管理</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							系统管理
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="Manager/Manager_selectByPage.html" target="show">查看用户</a></li>
+							<li><a href="Manager/Manager_selectByPage.jsp" target="show">查看用户</a></li>
 							<li class="divider"></li>
-							<li><a href="Manager/Manager_toAdd.html" target="show">添加用户</a></li>
+							<li><a href="Manager/Manager_toAdd.jsp" target="show">添加用户</a></li>
 							<li class="divider"></li>
-							<li><a href="Manager/Manager_toUpdatePassword.html" target="show">添加密码</a></li>
+							<li><a href="Manager/Manager_toUpdatePassword.jsp" target="show">添加密码</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div style="position: absolute; bottom: 10px; right: 10px; font-size: 30px;color: goldenrod"><a href="./login.html ">
+	<div style="position: absolute; bottom: 10px; right: 10px; font-size: 30px;color: goldenrod"><a href="./login_new.jsp ">
 		<button type="button" class="btn btn-info">EXIT</button></a></div>
-<!--		<div class="divmenu" style="width: 50px">-->
-<!--			<dl>-->
-<!--				<dt onclick="menu(this.parentNode)" style="position:absolute;left: 50px;">  类别管理</dt>-->
-<!--				<dd style="position:absolute;left: 50px;">-->
-
-<!--						<a href="Category/Category_toAdd.html" target="show" style="position:absolute;left: 50px;">添加类别</a>-->
-
-<!--				</dd>-->
-<!--				<dd>-->
-<!--					<a href="Category/Category_selectByPage.html" target="show" style="position:absolute;left: 50px;">查看类别</a>-->
-<!--				</dd>-->
-<!--			</dl>-->
-<!--		</div>-->
-<!--		-->
-<!--		<div class="divmenu">-->
-<!--			<dl>-->
-<!--				<dt onclick="menu(this.parentNode)">药品管理</dt>-->
-<!--				<dd>-->
-<!--					<a href="../Drug/Drug_toAdd.html" target="show">添加药品</a>-->
-<!--				</dd>-->
-<!--				<dd>-->
-<!--					<a href="Drug/Drug_selectByPage.html" target="show">查看药品</a>-->
-<!--				</dd>-->
-<!--			</dl>-->
-<!--		</div>-->
-<!--		-->
-<!--		<div class="divmenu">-->
-<!--			<dl>-->
-<!--				<dt onclick="menu(this.parentNode)">购买药品</dt>-->
-<!--				<dd>-->
-<!--					<a href="Buy/Buy_selectByPage.html" target="show">选购药品</a>-->
-<!--				</dd>-->
-<!--			</dl>-->
-<!--		</div>-->
-<!--		-->
-<!--		<div class="divmenu">-->
-<!--			<dl>-->
-<!--				<dt onclick="menu(this.parentNode)">销售管理</dt>-->
-<!--				<dd>-->
-<!--					<a href="Sale/Sale_selectByPage.html" target="show">查看明细</a>-->
-<!--				</dd>-->
-<!--			</dl>-->
-<!--		</div>-->
-<!--		-->
-<!--		<div class="divmenu">-->
-<!--			<dl>-->
-<!--				<dt onclick="menu(this.parentNode)">系统管理</dt>-->
-<!--				<dd>-->
-<!--					<a href="Manager/Manager_toAdd.html" target="show">添加用户</a>-->
-<!--				</dd>-->
-<!--				<dd>-->
-<!--					<a href="Manager/Manager_selectByPage.html" target="show">查看用户</a>-->
-<!--				</dd>-->
-<!--				<dd>-->
-<!--					<a href="Manager/Manager_toUpdatePassword.html" target="show">修改密码</a>-->
-<!--				</dd>-->
-<!--			</dl>-->
-<!--		</div>-->
-<!--		<div class="container">-->
-<!--			<div class="row">-->
-<!--				<div class="span6">-->
-<!--					<ul class="nav nav-tabs">-->
-<!--						<li class="active"><a href="#">Home</a></li>-->
-<!--						<li><a href="#">About</a></li>-->
-<!--						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">FrontEnd<b class="caret"></b></a>-->
-<!--							<ul class="dropdown-menu">-->
-<!--								<li><a href="#">Twitter Bootstrap</a></li>-->
-<!--								<li><a href="#">Google Plus API</a></li>-->
-<!--								<li><a href="#">HTML5</a></li>-->
-<!--								<li class="divider"></li>-->
-<!--								<li><a href="#">Examples</a></li>-->
-<!--							</ul>-->
-<!--						</li>-->
-<!--						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BackEnd<b class="caret bottom-up"></b></a>-->
-<!--							<ul class="dropdown-menu bottom-up pull-right">-->
-<!--								<li><a href="#">PHP</a></li>-->
-<!--								<li><a href="#">MySQL</a></li>-->
-<!--								<li><a href="#">PostgreSQL</a></li>-->
-<!--								<li class="divider"></li>-->
-<!--								<li><a href="#">Live Demos</a></li>-->
-<!--							</ul>-->
-<!--						</li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="row">-->
-<!--				<div style="text-align: end;color:blue;font-size:20px; "><a href="./login.html ">退出系统</a></div></div>-->
-<!--		</div>-->
-
-
-
 	</body>
 </html>
+
+
+
+
+

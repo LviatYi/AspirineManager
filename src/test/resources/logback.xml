@@ -4,7 +4,7 @@
     <property name="appName"
               value="AspirineManager"/>
     <property name="logPath"
-              value="E:/Log"/>
+              value="C:/Log"/>
     <!--
          日志输出格式：
              %-5level 日志级别

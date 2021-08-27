@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%> <%@ page
+		import="com.lviat.util.constant.text.RelationText"
+		import="com.lviat.util.constant.text.MethodText"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,27 +21,29 @@
 	</div>
 	<div class="row"style="height: 80px"></div>
 	<div class="row">
-		<form class="form-horizontal">
+
+<%--		medicine插入--%>
+		<form class="form-horizontal" method="${MethodText.MEDICINE_ADD}">
 			<div class="form-group">
 				<label for="code" class="col-sm-3 control-label">药品编号</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="code" >
+					<input type="text" class="form-control" id="code" name="${RelationText.WEB_MEDICINE_CODE}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="name" class="col-sm-3 control-label">药品名称</label>
+				<label for="name" class="col-sm-3 control-label" >药品名称</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="name" >
+					<input type="text" class="form-control" id="name" name="${RelationText.WEB_MEDICINE_NAME}" >
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="price" class="col-sm-3 control-label">药品单价</label>
 				<div class="col-sm-7">
-					<input type="number" class="form-control" id="price" >
+					<input type="number" class="form-control" id="price" name="${RelationText.WEB_MEDICINE_PRICE}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inventoryCount" class="col-sm-3 control-label">库存数量</label>
+				<label for="inventoryCount" class="col-sm-3 control-label"name="${RelationText.WEB_MEDICINE_INVENTORY_COUNT}">库存数量</label>
 				<div class="col-sm-7">
 					<input type="number" class="form-control" id="inventoryCount" >
 				</div>
@@ -45,14 +51,15 @@
 			<div class="form-group">
 				<label for="productionDate" class="col-sm-3 control-label">生产日期</label>
 				<div class="col-sm-7">
-					<input  type="Date" class="form-control" id="productionDate"  >
+					<input  type="Date" class="form-control" id="productionDate" name="${RelationText.WEB_MEDICINE_PRODUCTION_DATE}" >
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="vendorName" class="col-sm-3 control-label">生产日期</label>
+				<label for="vendorName" class="col-sm-3 control-label">生产厂商</label>
 				<div class="col-sm-7">
-					<input  type="text" class="form-control" id="vendorName" list="vendorNamelist" >
+<%--					下拉框 火狐双击出现，chrome尾部有点击按钮--%>
+					<input  type="text" class="form-control" id="vendorName" list="vendorNamelist"name="${RelationText.WEB_MEDICINE_VENDOR_NAME}" >
 					<datalist id="vendorNamelist">
 						<option>抗菌消炎类</option>
 						<option>清热解毒类</option>
@@ -79,7 +86,7 @@
 			alert($("#productionDate").val());
 		})
 	</script>
-<!--		<div class="row"><form action="Drug_selectByPage.html">-->
+<!--		<div class="row"><form action="Drug_selectByPage.jsp">-->
 <!--			<table id="tab" style="margin-top: 30px;">-->
 <!--				<tr>-->
 <!--					<td align="right" style="width:40%;">药品编号:</td>-->
