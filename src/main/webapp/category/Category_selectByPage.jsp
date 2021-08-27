@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ page
+pageEncoding="UTF-8"%>
+<%@ page
 import="com.lviat.util.constant.text.RelationText"
-import="com.lviat.util.constant.text.MethodText"%>
+import="com.lviat.util.constant.text.MethodText"
 import="com.lviat.service.MedicineTypeServiceImpl"
-import="com.lviat.model.User"
+import="com.lviat.model.MedicineType"
 import="java.util.ArrayList"
 import="java.util.List"
-<%@ page import="com.lviat.model.MedicineType" %>
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +23,7 @@ import="java.util.List"
 	</head>
 	<body style="background-color: #DAF3F5">
 	<%
-		List<MeidicineType> medicineList = new ArrayList<>();
+		List<MedicineType> medicineList = new ArrayList<>();
 		(new MedicineTypeServiceImpl()).getMedicineType(medicineList,1);
 	%>
 		<div id="top" style="background-color: #C0EBEF;text-align: center;font-size: large">类别管理--查看类别</div>
@@ -30,7 +31,7 @@ import="java.util.List"
 		    <table class="table table-bordered table-hover" id="tab" border="1">
 				<thead><tr>
 					<td colspan="6" height="50">
-<%--						MEdicineType类别查询--%>
+<%--						medicineType类别查询--%>
 						<form method="${MethodText.MEDICINE_TYPE_SELECT}">
 							<input id="search_Category" type="text" title="类别ID" placeholder="输入类别ID" name="${RelationText.WEB_MEDICINE_TYPE_TYPE_ID}" /> <input
 							  class="btn btn-info" type="submit" value="查询"/>
@@ -47,37 +48,28 @@ import="java.util.List"
 					<th style="text-align: center">描述</th>
 					<th style="text-align: center" colspan="2">操作</th>
 				</tr>
-				<c:forEach items="${list}" var="item">
-				<tr>
-					<td>${item.typeId}</td>
-					<td>${item.typeName}</td>
-					<td>${item.createDate}</td>
-					<td>${item.describe}</td>
-					<td><button id="update" type="button" class="btn btn-info">
-						编辑</button></td>
-					<td><button id="delete" type="button" class="btn btn-danger">
-						删除</button></td>
-				</tr>
+
+				<%
+                    for (MedicineType medicineType : medicineTypeList) {
+                %>
+                <tr>
+                    <td><%=medicineType.getTypeId()%></td>
+                    <td><%=medicineType.getTypeName()%></td>
+                    <td><%=medicineType.getCreateDate()%></td>
+                    <td><%=medicineType.getDescribe()%></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_MODIFY%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>&<%=RelationText.WEB_MEDICINE_TYPE_CODE%>=<%=medicineType.getCode()%>&<%=RelationText.WEB_MEDICINE_NAME%>=<%=medicineType.getName()%>&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicineType.getPrice()%>&<%=RelationText.WEB_MEDICINE_PRICE%>=<%=medicineType.getPrice()%>&&<%=RelationText.WEB_MEDICINE_INVENTORY_COUNT%>=<%=medicineType.getInventoryCount()%>&<%=RelationText.WEB_MEDICINE_PRODUCTION_DATE%>=<%=medicineType.getProductionDate()%>&<%=RelationText.WEB_MEDICINE_VENDOR_NAME%>=<%=medicineType.getVendorName()%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>">编辑</a>
+                    </td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_DEL%>&<%=RelationText.WEB_MEDICINE_TYPE_ID%>=<%=medicineType.getTypeId()%>"
+                           class="delete">删除</a></td>
+                </tr>
+                <%
+                    }
+                %>
+
 				</c:forEach>
-				<c:forEach items="${list}" var="item">
-				<tr>
-					<td>${item.typeId}</td>
-					<td>${item.typeName}</td>
-					<td>${item.createDate}</td>
-					<td>${item.describe}</td>
-					<td><a href=${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.MEDICINE_TYPE_MODIFY%>,<%=RelationText.WEB_MEDICINE_ID%>=<%=item.getTypeId()%>&<%=RelationText.WEB_USER_ID%>=<%=item.getTypeName()%>&<%=RelationText.WEB_USER_NAME%>=<%=user.getName()%>,&<%=RelationText.WEB_USER_PHONE_NUM%>=<%=user.getPhoneNum()%>">编辑</a>
-					<td><a href="Category_toAdd.jsp">编辑</a></td>
-					<td><a href="">删除</a></td>
-				</tr>
-				</c:forEach>
-				<tr>
-					<td>c1003</td>
-					<td>抗菌消炎类</td>
-					<td>2017-01-01</td>
-					<td>可以抗菌消炎</td>
-					<td><a href="Category_toAdd.jsp">编辑</a></td>
-					<td><a href="">删除</a></td>
-				</tr>
+
 				</tbody>
 			</table>
 			</div>
