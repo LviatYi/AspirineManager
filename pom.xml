@@ -112,6 +112,7 @@
 
     <build>
         <finalName>AspirineManager</finalName>
+
         <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>

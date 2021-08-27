@@ -33,7 +33,7 @@
     <table id="tab" border="1" class="table table-bordered table-hover">
         <tr>
             <td colspan="8" height="50px">
-                <%--					用户ID查询--%>
+                <%--用户ID查询--%>
                 <form method="${MethodText.USER_SELECT}">
                     <input type="text" title="用户ID" placeholder="用户ID" name="${RelationText.WEB_USER_ID}"/>
                     <input type="submit" value="查询" class="btn-info btn"/>
@@ -53,26 +53,21 @@
             for (User user : userList) {
         %>
         <tr>
-            <td>${user.getId}</td>
-            <td>${user.getUsername}</td>
-            <td>${user.getName}</td>
-            <td>${user.getPhoneNum}</td>
-            <td>${user.getRole}</td>
+            <td>${user.getId()}</td>
+            <td>${user.getUsername()}</td>
+            <td>${user.getName()}</td>
+            <td>${user.getPhoneNum()}</td>
+            <td>${user.getRole()}</td>
             <td>
                 <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.USER_MODIFY%>,<%=RelationText.WEB_USER_ID%>=<%=user.getId()%>&<%=RelationText.WEB_USER_ID%>=<%=user.getUsername()%>&<%=RelationText.WEB_USER_NAME%>=<%=user.getName()%>,&<%=RelationText.WEB_USER_PHONE_NUM%>=<%=user.getPhoneNum()%>">编辑</a>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/${UrlText.DATA_MANAGER}.do?method=<%=MethodText.USER_DEL%>,<%=RelationText.WEB_USER_ID%>=<%=user.getId()%>"
                    class="delete">删除</a></td>
-            <td><a href="">编辑</a></td>
-            <td><a href="">重置密码</a></td>
-            <td><a href="">删除</a></td>
         </tr>
         <%
             }
         %>
-
-
     </table>
 </div>
 <div class="col-md-6" id="page_context">
