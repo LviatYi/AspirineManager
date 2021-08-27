@@ -5,7 +5,9 @@ import com.lviat.model.*;
 import com.lviat.service.*;
 import com.lviat.util.constant.text.MethodText;
 import com.lviat.util.constant.text.RelationText;
+import com.lviat.util.constant.text.UrlText;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,10 +19,11 @@ import java.io.IOException;
  * 管理员权限.
  *
  * @author LviatYi
- * @version 0.1
+ * @version 1.0
  * @className DateManagerServlet
  * @date 2021/8/26
  */
+@WebServlet(name = "SalesManagerServlet", urlPatterns = UrlText.DATA_MANAGER + ".do")
 public class DataManagerServlet extends HttpServlet {
     private UserService userService;
     private MedicineService medicineService;
