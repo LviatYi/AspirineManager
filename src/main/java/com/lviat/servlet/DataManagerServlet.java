@@ -39,40 +39,90 @@ public class DataManagerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
-        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
-        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
-        switch (req.getParameter("method")) {
-            case MethodText
-                    .USER_ADD:
-                userService.addUser(newUser);
+        switch (req.getParameter(MethodText.METHOD)) {
+            case MethodText.USER_ADD:
+                this.addUser(req, resp);
                 break;
             case MethodText.USER_DEL:
-                userService.delUser(newUser.getId());
+                this.delUser(req, resp);
                 break;
             case MethodText.USER_MODIFY:
-                userService.modifyUser(newUser);
+                this.modifyUser(req, resp);
                 break;
             case MethodText.MEDICINE_ADD:
-                medicineService.addMedicine(newMedicine);
+                this.addMedicine(req, resp);
                 break;
             case MethodText.MEDICINE_DEL:
-                medicineService.delMedicine(newMedicine.getId());
+                this.delMedicine(req, resp);
                 break;
             case MethodText.MEDICINE_MODIFY:
-                medicineService.modifyMedicine(newMedicine);
+                this.modifyMedicine(req, resp);
                 break;
             case MethodText.MEDICINE_TYPE_ADD:
-                medicineTypeService.addMedicineType(newMedicineType);
+                this.addMedicineType(req, resp);
                 break;
             case MethodText.MEDICINE_TYPE_DEL:
-                medicineTypeService.delMedicineType(newMedicineType.getTypeId());
+                this.delMedicineType(req, resp);
                 break;
             case MethodText.MEDICINE_TYPE_MODIFY:
-                medicineTypeService.modifyMedicineType(newMedicineType);
+                this.modifyMedicineType(req, resp);
                 break;
             default:
                 break;
         }
     }
+
+    private void addUser(HttpServletRequest req, HttpServletResponse resp) {
+        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
+        userService.addUser(newUser);
+    }
+
+    private void delUser(HttpServletRequest req, HttpServletResponse resp) {
+        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
+        userService.delUser(newUser.getId());
+
+    }
+
+    private void modifyUser(HttpServletRequest req, HttpServletResponse resp) {
+        User newUser = JSON.parseObject(req.getParameter("user"), User.class);
+        userService.modifyUser(newUser);
+
+    }
+
+    private void addMedicine(HttpServletRequest req, HttpServletResponse resp) {
+        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
+
+        medicineService.addMedicine(newMedicine);
+    }
+
+    private void delMedicine(HttpServletRequest req, HttpServletResponse resp) {
+        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
+
+        medicineService.delMedicine(newMedicine.getId());
+    }
+
+    private void modifyMedicine(HttpServletRequest req, HttpServletResponse resp) {
+        Medicine newMedicine = JSON.parseObject(req.getParameter("medicine"), Medicine.class);
+
+        medicineService.modifyMedicine(newMedicine);
+    }
+
+    private void addMedicineType(HttpServletRequest req, HttpServletResponse resp) {
+        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
+
+        medicineTypeService.addMedicineType(newMedicineType);
+    }
+
+    private void delMedicineType(HttpServletRequest req, HttpServletResponse resp) {
+
+        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
+        medicineTypeService.delMedicineType(newMedicineType.getTypeId());
+    }
+
+    private void modifyMedicineType(HttpServletRequest req, HttpServletResponse resp) {
+        MedicineType newMedicineType = JSON.parseObject(req.getParameter("medicineType"), MedicineType.class);
+        medicineTypeService.modifyMedicineType(newMedicineType);
+
+    }
+
 }
