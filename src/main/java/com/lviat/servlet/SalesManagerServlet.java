@@ -50,7 +50,7 @@ public class SalesManagerServlet extends HttpServlet {
                 this.delSalesInfo(req, resp);
                 break;
             case MethodText.SALES_INFO_MODIFY:
-                this.modifySalesInfo(req, resp);
+                this.modifySalesInfo(req,resp);
                 break;
             default:
                 break;
@@ -62,9 +62,9 @@ public class SalesManagerServlet extends HttpServlet {
         salesInfoService.addSalesInfo(salesInfo);
     }
 
-    private void delSalesInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SalesInfo salesInfo = JSON.parseObject(req.getParameter("salesInfo"), SalesInfo.class);
-        salesInfoService.delSalesInfo(salesInfo.getId());
+    private void delSalesInfo(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        long salesInfoId = Long.parseLong(req.getParameter(RelationText.WEB_SALESINFO_ID));
+        salesInfoService.delSalesInfo(salesInfoId);
     }
 
     private void modifySalesInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
