@@ -22,6 +22,18 @@ public class UrlText {
      */
     final public static String LOGOUT = "/logout";
     /**
+     * 销售处理页 Url.
+     */
+    final public static String SALES = "/sales";
+    /**
+     * 数据管理页 Url.
+     */
+    final public static String DATA_MANAGER = "/manager";
+    /**
+     * 视图请求页 Url.
+     */
+    final public static String DATA_GET="/view";
+    /**
      * 用户管理页 Url.
      */
     final public static String USER_MANAGER = "/admin/user-manage";
