@@ -36,7 +36,7 @@ Aspirine Manager 医药管理系统.
   - 项目组长.
   - 前端开发工程师.
 - [Titc-s 汤硕](https://github.com/Titc-s)
-  - 后盾开发工程师.
+  - 后端开发工程师.
   - 产品文档维护.
 
 ## Environment
