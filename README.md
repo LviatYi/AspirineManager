@@ -26,7 +26,7 @@ Aspirine Manager 医药管理系统.
 
 ## Developer
 
-- [LviatYi 易家俊](https://github.com/LviatYi)
+- [LviatYi 易之](https://github.com/LviatYi)
   - 主程.
   - 数据库管理员.
   - 架构设计.
